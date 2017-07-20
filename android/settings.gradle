@@ -1,0 +1,5 @@
+rootProject.name = 'traintrain'
+include ':imobile_for_reactnative'
+project(':imobile_for_reactnative').projectDir = new File(rootProject.projectDir, '../node_modules/imobile_for_reactnative/android')
+
+include ':app'

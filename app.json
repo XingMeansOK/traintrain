@@ -1,5 +1,10 @@
 {
   "expo": {
-    "sdkVersion": "18.0.0"
-  }
+    "sdkVersion": "18.0.0",
+    "android": {
+      "package": "supermaptrainassister"
+    }
+  },
+  "name": "traintrain",
+  "displayName": "supermaptrainassister"
 }
