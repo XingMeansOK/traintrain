@@ -1806,7 +1806,33 @@ containing a value of this type.
         public static final int abc_textfield_search_activated_mtrl_alpha=0x7f02003b;
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f02003c;
         public static final int abc_textfield_search_material=0x7f02003d;
-        public static final int notification_template_icon_bg=0x7f02003e;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_10=0x7f02003e;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_1001=0x7f02003f;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_1002=0x7f020040;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_1003=0x7f020041;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_1004=0x7f020042;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_1005=0x7f020043;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_1006=0x7f020044;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_1007=0x7f020045;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_1008=0x7f020046;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_1009=0x7f020047;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_10100=0x7f020048;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_14=0x7f020049;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_30307=0x7f02004a;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_30308=0x7f02004b;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_30502=0x7f02004c;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_30709=0x7f02004d;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_40503=0x7f02004e;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_56=0x7f02004f;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_70100=0x7f020050;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_80102=0x7f020051;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_80106=0x7f020052;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_80201=0x7f020053;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_80400=0x7f020054;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_plotimage_star=0x7f020055;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_resource_destpoint=0x7f020056;
+        public static final int node_modules_imobile_for_reactnative_nativemodule_resource_startpoint=0x7f020057;
+        public static final int notification_template_icon_bg=0x7f020058;
     }
     public static final class id {
         public static final int action0=0x7f0d0058;

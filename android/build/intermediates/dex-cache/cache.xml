@@ -3,12 +3,30 @@
 
     <item
         is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.45.1\jars\classes.jar"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.46.4\jars\libs\infer-annotations-4.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="0d3e48e200296061415952a358fad487e129adaa">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.facebook.react-react-native-0.45.1_bfa95578daf79701f96424f5fa1579eb3bbf8954.jar" />
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\infer-annotations-4.0_7b2150087080239f4af644778689ff630062a11a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-urlconnection\3.6.0\3f9b16b774f2c36cfd86dd2053d0b3059531dacc\okhttp-urlconnection-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\okhttp-urlconnection-3.6.0_0ea5209902ea96d95d6561e891859d3c099475dd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_c64325f78a24c085b700c554244dc03fa6bc6a89.jar" />
     </item>
     <item
         is-multidex="false"
@@ -39,6 +57,24 @@
     </item>
     <item
         is-multidex="false"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\traintrain\imobile_for_reactnative\unspecified\jars\libs\com.supermap.mdatacollector_v812.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="0d30ba4b564a1677c815fe1cbfa370f97da88795">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.supermap.mdatacollector_v812_e5d08838ae6b46f40dbf10ba0dda437d63cac883.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\1.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d9c4402c3057225d80cbbbec52154e7a25b0ebdf">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-1.0.1_8c70a61b158dcee216a8d62ebc049e0906f636f2.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-okhttp3\1.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -48,12 +84,48 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-ws\3.4.1\8ace66ef7002d98f633377c9e67daeeb196d8c3b\okhttp-ws-3.4.1.jar"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\traintrain\imobile_for_reactnative\unspecified\jars\libs\com.supermap.realspace_v812.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="8ace66ef7002d98f633377c9e67daeeb196d8c3b">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\okhttp-ws-3.4.1_fe83462a5d206d9870f1dd3ec3f8349b06d7cb1f.jar" />
+        sha1="828ac03ca8a0efa176dcd0c403ffbe62372f68d7">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.supermap.realspace_v812_098ca2e6f10cca1baefc34abd40dd10f001d0a20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\1.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="cf836a435a496eb22ff2aa69aa1e619462549f81">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fresco-1.0.1_043123c4f3ba1104b6f43126dead319bc2917bdf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.13.0\a9283170b7305c8d92d25aff02a6ab7e45d06cbe\okio-1.13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\okio-1.13.0_f63c7ab08dbed3c34e0fe0b9b1a691240ffa1bb7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.0.1_703e30ebb07b8116d10bbed9874d610eb6072e1d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.6.0\69edde9fc4b01c9fd51d25b83428837478c27254\okhttp-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\okhttp-3.6.0_1efc6a5eb9346389ba0de2f5ee10a5fa311da347.jar" />
     </item>
     <item
         is-multidex="false"
@@ -63,6 +135,24 @@
         revision="23.0.1"
         sha1="6975da39a7040257bd51d21a231b76c915872d38">
         <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\javax.inject-1_273da2ba53aedc2691b5c6c4485ebe7b12b6e634.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\1.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2668e49e4e31c7d451b76a36009b902bf44e0d70">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fbcore-1.0.1_7a87095c9206a4700ef7c76141c384b09937041c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.46.4\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c5526d30278eb171f4a1325bd6b927c9057c91f4">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.facebook.react-react-native-0.46.4_50c50b7448432b79e483c16c8b3aeaf56f3b34d9.jar" />
     </item>
     <item
         is-multidex="false"
@@ -84,12 +174,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.0.1_5d2df760c23488210883dc2fd65eeb0aecb5e870.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\traintrain\imobile_for_reactnative\unspecified\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="578f7228c2521f78b81c7b7d376074f197ae9b3d">
         <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\traintrain-imobile_for_reactnative-unspecified_a77cc35ecbdee0cbc96a2016cd93f58b4a6ef3dc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\traintrain\imobile_for_reactnative\unspecified\jars\libs\com.supermap.plot_v812.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fd2897ff891c22e365e940285e262bcbb7715849">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.supermap.plot_v812_9744c7fd9d5f665a859b15ab1fa9cd5061242825.jar" />
     </item>
     <item
         is-multidex="false"
@@ -111,12 +219,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-urlconnection\3.4.1\63994437f62bc861bc20c605d12962f7246116d1\okhttp-urlconnection-3.4.1.jar"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\traintrain\imobile_for_reactnative\unspecified\jars\libs\com.supermap.track_v812.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="63994437f62bc861bc20c605d12962f7246116d1">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\okhttp-urlconnection-3.4.1_8c53f11782c30ceeab64a97cd78f9c7aa80afcf8.jar" />
+        sha1="ec1a1dbd1bde533388a48ff3ae8582d28cb6b875">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.supermap.track_v812_824da6550467714dc2ff1ac6734a1141c58b750b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.facebook.fbui.textlayoutbuilder\staticlayout-proxy\1.0\f162442a19fff13995fbd51ba414d9ee05579080\staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\staticlayout-proxy-1.0_0283216b9bf7dad1d31c87f4be8f1ed4e4500cc6.jar" />
     </item>
     <item
         is-multidex="false"
@@ -129,12 +246,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\1.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="050f688115ea65a0292d8483a6ffe6bcdab1e2ef">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-base-1.0.1_8029ef6338cc0f933f745c758529f319a0b2552a.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\1.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="5a61f17cd72e20aa4323cbf5f909b7c609619275">
         <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-drawee-1.0.1_5304eea692143ff0d81322102d76af81eb7b317f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\traintrain\imobile_for_reactnative\unspecified\jars\libs\com.supermap.navigation_v812.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="63a1ee24e4eb581a73d3b17150e09d4ce1aec292">
+        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.supermap.navigation_v812_5aaa69c3e52e80c347a8842e7de376cab51bb59e.jar" />
     </item>
     <item
         is-multidex="false"
@@ -162,150 +297,6 @@
         revision="23.0.1"
         sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
         <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1_9792d51791d92eddc0d9758885c1364396bdbf7e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\okhttp-3.4.1_a3a718343956c6e4d917a53a4fdd4a4dc134cda5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_c64325f78a24c085b700c554244dc03fa6bc6a89.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\traintrain\imobile_for_reactnative\unspecified\jars\libs\com.supermap.mdatacollector_v812.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="0d30ba4b564a1677c815fe1cbfa370f97da88795">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.supermap.mdatacollector_v812_e5d08838ae6b46f40dbf10ba0dda437d63cac883.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\1.0.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="d9c4402c3057225d80cbbbec52154e7a25b0ebdf">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-1.0.1_8c70a61b158dcee216a8d62ebc049e0906f636f2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\traintrain\imobile_for_reactnative\unspecified\jars\libs\com.supermap.realspace_v812.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="828ac03ca8a0efa176dcd0c403ffbe62372f68d7">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.supermap.realspace_v812_098ca2e6f10cca1baefc34abd40dd10f001d0a20.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\1.0.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="cf836a435a496eb22ff2aa69aa1e619462549f81">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fresco-1.0.1_043123c4f3ba1104b6f43126dead319bc2917bdf.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.0.1_703e30ebb07b8116d10bbed9874d610eb6072e1d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\okio-1.9.0_db0545b090bbd931e1cf6e43202e038727277a7d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\1.0.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="2668e49e4e31c7d451b76a36009b902bf44e0d70">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fbcore-1.0.1_7a87095c9206a4700ef7c76141c384b09937041c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.0.1_5d2df760c23488210883dc2fd65eeb0aecb5e870.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\traintrain\imobile_for_reactnative\unspecified\jars\libs\com.supermap.plot_v812.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="fd2897ff891c22e365e940285e262bcbb7715849">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.supermap.plot_v812_9744c7fd9d5f665a859b15ab1fa9cd5061242825.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.45.1\jars\libs\infer-annotations-4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\infer-annotations-4.0_c998c3e91207ca01b022a87af780efac4d910a97.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\traintrain\imobile_for_reactnative\unspecified\jars\libs\com.supermap.track_v812.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="ec1a1dbd1bde533388a48ff3ae8582d28cb6b875">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.supermap.track_v812_824da6550467714dc2ff1ac6734a1141c58b750b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.facebook.fbui.textlayoutbuilder\staticlayout-proxy\1.0\f162442a19fff13995fbd51ba414d9ee05579080\staticlayout-proxy-1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\staticlayout-proxy-1.0_0283216b9bf7dad1d31c87f4be8f1ed4e4500cc6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\1.0.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="050f688115ea65a0292d8483a6ffe6bcdab1e2ef">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-base-1.0.1_8029ef6338cc0f933f745c758529f319a0b2552a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\workspace\traintrain\android\app\build\intermediates\exploded-aar\traintrain\imobile_for_reactnative\unspecified\jars\libs\com.supermap.navigation_v812.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="63a1ee24e4eb581a73d3b17150e09d4ce1aec292">
-        <dex dex="D:\workspace\traintrain\android\app\build\intermediates\pre-dexed\debug\com.supermap.navigation_v812_5aaa69c3e52e80c347a8842e7de376cab51bb59e.jar" />
     </item>
 
 </items>
