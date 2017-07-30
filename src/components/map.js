@@ -6,7 +6,10 @@ import {
 import {
   Workspace,
   SMMapView,
+  Point2D
 } from 'imobile_for_reactnative';
+
+var Point2DFac = new Point2D();
 
 export default class Map extends Component {
 
@@ -32,15 +35,21 @@ export default class Map extends Component {
         try {
           this.workspace = await workspaceModule.createObj();
 
-          await this.workspace.open("/SuperMap/SampleData/City/Changchun.smwu");
+          var datasource = await this.workspace.openDatasource({engineType:224,server:"http://supermapcloud.com"});
+          var dataset = await datasource.getDataset(0);
 
           this.mapControl = await this.mapView.getMapControl();
+          console.log("mapControl"+this.mapControl.mapControlId);
           this.map = await this.mapControl.getMap();
 
           await this.map.setWorkspace(this.workspace);
-          var mapName = await this.workspace.getMapName(0);
+          // var mapName = await this.workspace.getMapName(0);
 
-          await this.map.open(mapName);
+          // await this.map.open(mapName);
+          this.map.addLayer(dataset,true);
+          await this.map.zoom(200.0);
+          // var point2D = await Point2DFac.createObj(12953693.6950684, 4858067.04711915);
+          // await this.map.setCenter(point2D);
           await this.map.refresh();
         } catch (e) {
           console.error(e);
