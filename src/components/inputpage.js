@@ -19,40 +19,33 @@ export default class Inputpage extends Component {
       isLoading: true
     }
 
-    this.listComponent = () => {
-      if(this.state.isLoading) {
-        return (<Text>loading</Text>)
-      } else {
-        return (
-          <ListView
-            dataSource={this.store.stations}
-            renderRow={(rowData) => <Text>{rowData.pinyin}, {rowData.name}</Text>}
-          />
-        )
-      }
-    }
+    this.listComponent.bind(this);
 
   }
   static navigationOptions = {
     title: 'type in',
   };
 
+  listComponent() {
+    if(this.state.isLoading) {
+      return (<Text>loading</Text>)
+    } else {
+      return (
+        <ListView
+          dataSource={this.store.stations}
+          renderRow={(rowData) => <Text>{rowData.pinyin}, {rowData.name}</Text>}
+        />
+      )
+    }
+  }
+
   componentDidMount() {//组件加载之后，向服务器请求火车站站名信息
     return fetch('http://10.5.201.202:3000/json/name.json')
-      .then((response) => {
-        return response.json()
-      })
+      .then((response) => response.json())
       .then((responseJson) => {
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        // this.setState({
-        //   isLoading: false,
-        //   dataSource: ds.cloneWithRows(responseJson.movies),
-        // }, function() {
-        //   // do something with new state
-        // });
         this.store.stations = ds.cloneWithRows(responseJson.trainData);
         this.setState({isLoading: false});
-
       })
       .catch((error) => {
         console.error(error);
