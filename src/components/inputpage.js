@@ -38,7 +38,7 @@ export default class Inputpage extends Component {
   };
 
   componentDidMount() {//组件加载之后，向服务器请求火车站站名信息
-    return fetch('http://10.5.201.202/:3000/json/name.json')
+    return fetch('http://10.5.201.202:3000/json/name.json')
       .then((response) => {
         return response.json()
       })
