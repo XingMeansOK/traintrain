@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import { Provider } from 'mobx-react';
 import Mappage from './components/mappage';
 import Inputpage from './components/inputpage';
 import Resultpage from './components/resultpage';
@@ -16,8 +17,8 @@ import {appStore} from './store/store';// 用于保存app所有的状态和数�
   pages[MAPPAGE] = { screen: Mappage };就相当于pages.Mappage = { screen: Mappage };
 */
 let pages = {}; // 创建一个空的对象，let是es6中定义变量的关键字，具有块级作用域
-// pages[MAPPAGE] = { screen: Mappage };
-pages[INPUTPAGE] = { screen: Inputpage };
+pages[MAPPAGE] = { screen: Mappage };
+// pages[INPUTPAGE] = { screen: Inputpage };
 // pages[RESULTPAGE] = { screen: Resultpage };
 
 /*
@@ -26,11 +27,13 @@ StackNavigator返回一个组件  StackPages
 也就是Mappage，Inputpage，Resultpage都会得到这个screenProps
 */
 const StackPages = StackNavigator(pages);
-
+// <StackPages screenProps={appStore} />
 class Traintrain extends React.Component {
   render() {
     return (
-      <StackPages screenProps={appStore} />
+      <Provider store={appStore}>
+        <StackPages/>
+      </Provider>
     )
   }
 }

@@ -11,7 +11,7 @@ import {
 
 var Point2DFac = new Point2D();
 
-export default class Map extends Component {
+export default class SMap extends Component {
 
   //Required funtion for obtaining the MapView object.
   _onGetInstance = (mapView) => {
