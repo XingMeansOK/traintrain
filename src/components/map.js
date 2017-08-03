@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {
   StyleSheet,
-  View
+  View,
+  Dimensions
 } from 'react-native';
 import {
   Workspace,
@@ -10,6 +11,7 @@ import {
 } from 'imobile_for_reactnative';
 
 var Point2DFac = new Point2D();
+const { height, width } = Dimensions.get('window')
 
 export default class SMap extends Component {
 
@@ -36,6 +38,7 @@ export default class SMap extends Component {
           this.workspace = await workspaceModule.createObj();
 
           var datasource = await this.workspace.openDatasource({engineType:224,server:"http://supermapcloud.com"});
+          // var datasource = await this.workspace.openDatasource({engineType:224,server:"http://192.168.0.126:8090/iserver/services/map-test0802/rest"});
           var dataset = await datasource.getDataset(0);
 
           this.mapControl = await this.mapView.getMapControl();
@@ -47,7 +50,7 @@ export default class SMap extends Component {
 
           // await this.map.open(mapName);
           this.map.addLayer(dataset,true);
-          await this.map.zoom(200.0);
+          await this.map.zoom(5000);
           // var point2D = await Point2DFac.createObj(12953693.6950684, 4858067.04711915);
           // await this.map.setCenter(point2D);
           await this.map.refresh();
@@ -62,7 +65,12 @@ export default class SMap extends Component {
 
   render() {
     return (
-      <SMMapView ref="mapView" style={styles.map} onGetInstance={this._onGetInstance}/>
+
+      <View style={styles.content}>
+        <View style={styles.containerMap}>
+          <SMMapView ref="mapView" style={styles.map} onGetInstance={this._onGetInstance}/>
+        </View>
+      </View>
     );
   }
 }
@@ -71,5 +79,21 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
     alignSelf: 'stretch',
+  },
+  content: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  containerMap: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height,
+    width,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   }
 });
