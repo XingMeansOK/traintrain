@@ -51,3 +51,9 @@ buck-out/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
+
+
+#customize!!!!!!!!!!!!!!!
+android/.gradle/2.14.1/taskArtifacts/
+android/app/build/intermediates/incremental/packageDebug/
+android/app/build/outputs/apk
