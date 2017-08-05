@@ -23,6 +23,8 @@ export default class Resultpage extends Component {
   }
   constructor(props) {
     super(props);
+    const { navigate } = props.navigation;
+    props.store.navigate = props.store.navigate? props.store.navigate:navigate;
     var dataSource = new ViewPager.DataSource({
       pageHasChanged: (p1, p2) => p1 !== p2,
     });

@@ -19,7 +19,7 @@ import  {
    getHeightPercent,
    screenwidth,
    screenheight
- } from './constdata';
+ } from './constant';
 import {inject, observer} from 'mobx-react';
 
 
@@ -29,57 +29,24 @@ export default class StationList extends Component{
     super(props);
     this.store = this.props.store;
   }
+
   getStationsData(){
-      var data=require('./station.json');
+      var data=require('../store/station.json');
       var traindata=data.trainData;
-      // console.log(responseJson.trainData);
-      // console.log("133311");
       var  key = [],
-      //待修改，数组定义
-        data = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]],
         station=[];
       for (let i in traindata){
         if(key.indexOf(traindata[i].title)==-1){
           key.push(traindata[i].title);
-          // data[i].push(traindata[i].name);
         }
       }
       for (let k in key){
         station[k]={key:key[k],data:traindata[k].name};
       }
-      console.log(station);
       return station;
   }
 
-  sectionListComponent(){
-      return(
-        <View style={styles.container}>
-            <SectionList
-              ref={sectionList => this._sectionList=sectionList}
-              sections={this.getStationsData()}
-              renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-              renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.key}</Text>}
-              stickySectionHeadersEnabled={true}
-              ItemSeparatorComponent={({item}) => <View style={styles.itemsperator}>{item}</View>}
-              SectionSeparatorComponent={({item}) => <View style={styles.sectionsperator}>{item}</View>}
-              getItemLayout={(data,index) => (
-                {length:(itemheight+itemsperatorheight),offset:(itemheight+itemsperatorheight)*index,index}
-              )}
-            />
-            <TouchableOpacity>
-              <ScrollView>
-                {fletter.map((letter,index) => this.renderFirstLetter(letter,index))}
-              </ScrollView>
-            </TouchableOpacity>
-          </View>
-      );
-    }
-
-  // fletter.map((letter,index) => {
-  //   return <Text style={styles.firstletter}>{item}</Text>
-  // })
   renderFirstLetter(firstletter,index){
-    //onPress={() => this._sectionList.scrollToLocation({itemIndex:5,animated: true})}
     return(
       <View>
         <TouchableOpacity
@@ -104,56 +71,123 @@ export default class StationList extends Component{
       // itemindex,
       animated: true
     });
-
   }
+
+  renderStation(item) {
+  return(
+    <TouchableOpacity
+      activeOpacity={0.6}
+      onPress={() =>{
+        if(this.props.store.startInput){
+          this.props.store.start=item;
+          // this.props.store.start=item;
+        }
+        else {
+          if(this.props.store.destinationInput){
+            this.props.store.destination=item;
+            // this.props.store.destination=item;
+          }
+        }
+      }}
+    >
+      <Text style={styles.item}>{item}</Text>
+    </TouchableOpacity>
+    );
+  }
+
+  // selectStation(){
+  //   // this._textInput.defaulValue="121212";
+  // }
+
+  sectionListComponent(){
+      return(
+        <View style={styles.listcontainer}>
+            <SectionList
+              keyboardShouldPersistTaps="false"
+
+              ref={sectionList => this._sectionList=sectionList}
+              sections={this.getStationsData()}
+              renderItem={({item}) => this.renderStation(item)}
+              renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.key}</Text>}
+              stickySectionHeadersEnabled={true}
+              ItemSeparatorComponent={({item}) => <View style={styles.itemsperator}>{item}</View>}
+              SectionSeparatorComponent={({item}) => <View style={styles.sectionsperator}>{item}</View>}
+              getItemLayout={(data,index) => (
+                {length:(itemheight+itemsperatorheight),offset:(itemheight+itemsperatorheight)*index,index}
+              )}
+            />
+              <ScrollView
+                centerContent={true}
+              >
+                {fletter.map((letter,index) => this.renderFirstLetter(letter,index))}
+              </ScrollView>
+          </View>
+      );
+    }
+
+
 
   render(){
     return (
-      <View style={styles.container}>
+      <View  style={styles.listcontainer}>
         {this.sectionListComponent()}
       </View>
-    );
+      );
+    }
   }
-}
 
 
-const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-  //  paddingTop: 10,
-   flexDirection: 'row',
-   justifyContent: 'space-between',
-   backgroundColor: 'white',
-  },
-  sectionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(240,240,240,1.0)',
-  },
-  item: {
-    padding: 10,
-    fontSize: 15,
-    height: itemheight,
-    width:200,
-  },
-  sectionsperator:{
-    backgroundColor:'rgba(235,235,235,1.0)',
-    height:sectionsperatorheight,
-  },
-  itemsperator:{
-    backgroundColor:'rgba(247,247,247,1.0)',
-    height:itemsperatorheight,
-  },
-  firstletter:{
-    fontSize:15,
-    paddingTop: 2,
-    paddingLeft: 5,
-    paddingRight: 5,
-    paddingBottom: 2
+  const styles = StyleSheet.create({
+    listcontainer: {
+     flex: 1,
+     paddingTop: 2,
+     flexDirection: 'row',
+     justifyContent: 'center',
+     backgroundColor: 'white',
+    },
+    // container2: {
+    //  flex: 1,
+    //  flexDirection: 'row',
+    //  backgroundColor: '#f90',
+    //  justifyContent: 'space-between',
+    // },
+    sectionHeader: {
+      // paddingTop: 2,
+      paddingLeft: 10,
+      paddingRight: 10,
+      paddingBottom: 2,
+      fontSize: 14,
+      fontWeight: 'bold',
+      backgroundColor: 'rgba(240,240,240,1.0)',
+    },
+    item: {
+      padding: 10,
+      fontSize: 15,
+      height: itemheight,
+      width:getWidthPercent(94),
+    },
+    sectionsperator:{
+      backgroundColor:'rgba(235,235,235,1.0)',
+      height:sectionsperatorheight,
+    },
+    itemsperator:{
+      backgroundColor:'rgba(247,247,247,1.0)',
+      height:itemsperatorheight,
+    },
+    firstletter:{
+      fontSize:14,
+      paddingLeft: getWidthPercent(3),
+      paddingTop: 1,
+      // paddingRight: 1,
+      // paddingLeft: 1,
+      // paddingBottom: 1,
+      // justifyContent: 'space-between'
+    },
+    scrollletter:{
+      width:20,
+      alignItems: 'center',
+      justifyContent: 'flex-end',
 
-  },
-})
+
+    }
+  })
