@@ -7,7 +7,7 @@ import {
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 import ViewPager from 'react-native-viewpager';
-import { ANCHORPOINT, PEEKHEIGHT } from './constant';
+import { ANCHORPOINT, PEEKHEIGHT, BLUESTYLECOLOR } from './constant';
 const { height, width } = Dimensions.get('window');
 
 @inject("store") @observer
@@ -23,16 +23,6 @@ export default class BottomSheet extends Component {
       currentPage:0
     }
   }
-
-
-  // <ViewPager
-  //   dataSource={this.state.dataSource}
-  //   renderPage={this.renderViewPagerPage}
-  //   onChangePage={(page) => {this.setState({currentPage:page})}}
-  // />
-
-  // <View style={styles.bottomSheetContent}>
-  // </View>
 
   renderViewPagerPage = (data) => {
     return(<View style={styles.page}>
@@ -64,7 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   bottomSheetHeader: {
-    backgroundColor: '#4389f2',
+    backgroundColor: BLUESTYLECOLOR,
     padding: 28,
     flexDirection: 'row',
     alignItems: 'center',
@@ -73,13 +63,17 @@ const styles = StyleSheet.create({
   page: {
     height:ANCHORPOINT-PEEKHEIGHT-20,
     width: width-20,
-    padding: 12,
-    margin: 10,
+    padding: 10,
     alignItems: 'center',
-    backgroundColor: '#ccc',
+    justifyContent:'center',
+    borderWidth: 1,
+    backgroundColor: '#fff',
+    borderColor: 'rgba(0,0,0,0.1)',
+    margin: 10,
+    borderRadius: 10,
   },
   bottomSheetContent: {
-    flex: 1,
+    height:height-ANCHORPOINT+10,
     padding: 12,
     alignItems: 'center',
     backgroundColor: '#fff',

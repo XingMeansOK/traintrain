@@ -20,8 +20,9 @@ export default class Inputpage extends Component {
     this.state = {
 
     }
+  }
   static navigationOptions = {
-    title: 'type in',
+    header: null
   };
 
   render() {

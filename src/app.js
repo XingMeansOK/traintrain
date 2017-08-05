@@ -1,9 +1,9 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 import { Provider } from 'mobx-react';
 import Mappage from './components/mappage';
-import Inputpage from './components/inputpage';
+// import Inputpage from './components/inputpage';
 import Resultpage from './components/resultpage';
 import {MAPPAGE, INPUTPAGE, RESULTPAGE} from './components/constant';
 import {appStore} from './store/store';// 用于保存app所有的状态和数据（mobx的observable）
@@ -19,14 +19,20 @@ import {appStore} from './store/store';// 用于保存app所有的状态和数�
 let pages = {}; // 创建一个空的对象，let是es6中定义变量的关键字，具有块级作用域
 pages[MAPPAGE] = { screen: Mappage };
 // pages[INPUTPAGE] = { screen: Inputpage };
-// pages[RESULTPAGE] = { screen: Resultpage };
+pages[RESULTPAGE] = { screen: Resultpage };
 
 /*
-StackNavigator返回一个组件  StackPages
+@deprecated StackNavigator返回一个组件  StackPages
 并且可以使用screenProps传递props到每一个页面组件中
 也就是Mappage，Inputpage，Resultpage都会得到这个screenProps
+
+改用TabNavigator，超图的地图在StackNavigator中有bug，来回翻页几次就不能动了
 */
-const StackPages = StackNavigator(pages);
+const StackPages = TabNavigator(pages,
+  {
+      swipeEnabled: false
+  }
+);
 // <StackPages screenProps={appStore} />
 class Traintrain extends React.Component {
   render() {

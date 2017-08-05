@@ -8,13 +8,13 @@ import { ANCHORPOINT, PEEKHEIGHT } from './constant';
 
 @inject("store") @observer
 export default class BottomSheetBehaviorWrapper extends Component {
-  handleSlide(e) {
-    this.offset = e.nativeEvent.offset
-  }
+  // handleSlide(e) {
+  //   this.offset = e.nativeEvent.offset
+  // }
 
-  handleBottomSheetChange(e) {
-    this.lastState = e.nativeEvent.state
-  }
+  // handleBottomSheetChange(e) {
+  //   this.lastState = e.nativeEvent.state
+  // }
   render() {
 
     return (

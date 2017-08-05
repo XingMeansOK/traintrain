@@ -35,7 +35,7 @@ export default class MergedAppBarLayoutWrapper extends Component {
           statusBarColor={this.state.color}
           style={styles.appBarMerged}>
           <Icon.ToolbarAndroid
-            navIconName='md-arrow-back'
+            navIconName='md-arrow-round-down'
             overflowIconName='md-more'
             title='方案'
             titleColor="#000"

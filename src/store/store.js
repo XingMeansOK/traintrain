@@ -7,6 +7,7 @@ class AppStore {
   @observable searched = false; // 是否已经开始查询，也就是刚打开app是没有开始查询的
   @observable bottomSheetRef = null;// mappage下方活动页bottomsheetbehavior的引用
   @observable navigate = null; // react-navigation的navigate的引用
+  @observable selectedPlan = 0; // 已选方案
 }
 
 export const appStore = new AppStore();

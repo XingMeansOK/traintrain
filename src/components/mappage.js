@@ -17,7 +17,7 @@ import SMap from './map';
 import BottomSheetBehaviorWrapper from './bottomsheetbehavior';
 import MergedAppBarLayoutWrapper from './mergedappbarlayout';
 import {inject, observer} from 'mobx-react';
-import { INPUTPAGE } from './constant';
+import { INPUTPAGE, RESULTPAGE } from './constant';
 
 @inject("store") @observer
 export default class Mappage extends Component {
@@ -27,7 +27,8 @@ export default class Mappage extends Component {
     props.store.navigate = navigate;
   }
   static navigationOptions = {
-    header: null
+    // header: null
+    tabBarVisible: false
   };
 
   render() {
@@ -51,6 +52,11 @@ export default class Mappage extends Component {
         <MergedAppBarLayoutWrapper/>
         <FloatingActionButton
           autoAnchor
+          icon="md-list-box"
+          iconProvider={Icon}
+          iconColor={'#205cb2'}
+          iconColorExpanded={'#4589f2'}
+          onPress={() => this.props.store.navigate(RESULTPAGE)}
           elevation={18}
           backgroundColor={'#ffffff'}
           rippleColor="grey"
