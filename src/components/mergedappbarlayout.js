@@ -10,6 +10,7 @@ import {
   BottomSheetBehavior
 } from 'react-native-bottom-sheet-behavior';
 import {inject, observer} from 'mobx-react';
+import { RESULTPAGE, INPUTPAGE, URL } from './constant';
 
 @inject("store") @observer
 export default class MergedAppBarLayoutWrapper extends Component {
@@ -24,6 +25,45 @@ export default class MergedAppBarLayoutWrapper extends Component {
     if(this.props.store.bottomSheetRef) {
       this.props.store.bottomSheetRef.setBottomSheetState(BottomSheetBehavior.STATE_COLLAPSED);
     }
+  }
+
+  handleActions = (actionIndex) => {
+    switch (actionIndex) {
+      case 0:
+        this.props.store.navigate(INPUTPAGE);
+        break;
+      case 1:
+        this.props.store.navigate(RESULTPAGE);
+        break;
+      case 2:
+        this.sendRequest();
+        break;
+      default:
+    }
+  }
+
+  async sendRequest() {
+    let request = new Request(URL, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `start=${this.props.store.start}&destination=${this.props.store.destination}`
+    });
+    try {
+      let response = await fetch(request);
+      console.log("fetch request ", JSON.stringify(response.ok));
+      if(response.ok){
+          let responseJson = await response.json();
+      }else{
+          Alert.alert('提示','请求失败',[{text: '确定', onPress: () => console.log('OK Pressed!')},]);
+      }
+
+    } catch(error) {
+      console.error(error);
+    }
+
   }
 
   render() {
@@ -41,10 +81,12 @@ export default class MergedAppBarLayoutWrapper extends Component {
             titleColor="#000"
             style={{elevation: 6}}
             actions={[
-              {title: 'Search', show: 'always', iconName: 'md-search' },
-              {title: 'More'}
+              {title: 'Search', show: 'always', iconName: 'md-search'},
+              {title: '重新选'},
+              {title: '测试用发送请求'}
             ]}
-            onIconClicked={() => this.bottomSheetCollapsed()}>
+            onActionSelected={this.handleActions}
+            onIconClicked={this.bottomSheetCollapsed}>
           </Icon.ToolbarAndroid>
         </MergedAppBarLayout>
     )

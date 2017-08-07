@@ -51,7 +51,7 @@ export default class BottomSheet extends Component {
 const styles = StyleSheet.create({
   bottomSheet: {
     height,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   },
   bottomSheetHeader: {
     backgroundColor: BLUESTYLECOLOR,

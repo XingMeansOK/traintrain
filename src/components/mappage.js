@@ -17,7 +17,7 @@ import SMap from './map';
 import BottomSheetBehaviorWrapper from './bottomsheetbehavior';
 import MergedAppBarLayoutWrapper from './mergedappbarlayout';
 import {inject, observer} from 'mobx-react';
-import { INPUTPAGE, RESULTPAGE } from './constant';
+import { INPUTPAGE, RESULTPAGE, BLUESTYLECOLOR, WHITE } from './constant';
 
 @inject("store") @observer
 export default class Mappage extends Component {
@@ -32,6 +32,21 @@ export default class Mappage extends Component {
   };
 
   render() {
+
+    // <FloatingActionButton
+    //   autoAnchor
+    //   elevation={18}
+    //   rippleEffect={true}
+    //   rippleColor="grey"
+    //   icon="md-list-box"
+    //   iconProvider={Icon}
+    //   iconColor={WHITE}
+    //   iconColorExpanded={BLUESTYLECOLOR}
+    //   onPress={() => this.props.store.navigate(RESULTPAGE)}
+    //   backgroundColor={BLUESTYLECOLOR}
+    //   backgroundColorExpanded={WHITE}
+    // />
+
     return (
       <CoordinatorLayout style={styles.container}>
         <StatusBar translucent backgroundColor='#205cb2' />
@@ -50,17 +65,6 @@ export default class Mappage extends Component {
           <SMap/>
         <BottomSheetBehaviorWrapper/>
         <MergedAppBarLayoutWrapper/>
-        <FloatingActionButton
-          autoAnchor
-          icon="md-list-box"
-          iconProvider={Icon}
-          iconColor={'#205cb2'}
-          iconColorExpanded={'#4589f2'}
-          onPress={() => this.props.store.navigate(RESULTPAGE)}
-          elevation={18}
-          backgroundColor={'#ffffff'}
-          rippleColor="grey"
-        />
       </CoordinatorLayout>
     )
   }

@@ -27,4 +27,6 @@ export const RESULTPAGE = 'Resultpage';
 export const ANCHORPOINT = 300;
 export const PEEKHEIGHT = 80;
 export const BLUESTYLECOLOR = '#4389f2';
+export const WHITE = '#FFFFFF';
 export const MAXSELECTEDPLAN = 3;
+export const URL = "http://192.168.0.126:3000/users/";
