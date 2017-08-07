@@ -18,10 +18,11 @@ import  {
    getWidthPercent,
    getHeightPercent,
    screenwidth,
-   screenheight
+   screenheights
  } from './constant';
 import {inject, observer} from 'mobx-react';
-
+import { autorun } from 'mobx';
+import pinyin from 'js-pinyin';
 
 @inject("store") @observer
 export default class StationList extends Component{
@@ -30,28 +31,53 @@ export default class StationList extends Component{
     this.store = this.props.store;
   }
 
+  componentDidMount() {
+    const disposer = autorun(() => {
+      let sectionIndex = this.props.store.sectionListIndex<0?0:this.props.store.sectionListIndex;
+      let itemIndex = sectionIndex<1?-1:-2.5;
+      this.sectionListRef.scrollToLocation({
+        itemIndex:itemIndex,
+        // itemIndex:index.itemindex-2.5,
+        sectionIndex:sectionIndex,
+        viewPosition:0,
+        animated: true
+      });
+    })
+  }
+
   getStationsData(){
-      var data=require('../store/station.json');
-      var traindata=data.trainData;
+      var sourcedata=require('../store/station.json');
+      var traindata=sourcedata.trainData;
       var  key = [],
-        station=[];
+           data=[],
+           sections=[];
       for (let i in traindata){
         if(key.indexOf(traindata[i].title)==-1){
           key.push(traindata[i].title);
+          data.push(traindata[i].name);
         }
       }
       for (let k in key){
-        station[k]={key:key[k],data:traindata[k].name};
+        sections[k]={key:key[k],data:data[k]};
       }
-      return station;
+      var stationpinyin=[];
+      for (let x in data){
+        stationpinyin[x]=[];
+        for (let y in data[x]){
+          stationpinyin[x][y]=pinyin.getFullChars(data[x][y]);
+        }}
+      for (let z in key){
+        this.props.store.stations[z]={title:key[z],station:{name:data[z],pinyin:stationpinyin[z]}};
+      }
+      return sections;
   }
 
   renderFirstLetter(firstletter,index){
     return(
-      <View>
+      <View key={index}>
         <TouchableOpacity
           key={index}
-          onPress={() => this.scrollTo(firstletter)}
+          onPress={() => this.scrollToLetter(firstletter)}
           activeOpacity={0.6}
         >
           <Text style={styles.firstletter}>{firstletter}</Text>
@@ -60,15 +86,12 @@ export default class StationList extends Component{
     );
   }
 
-  scrollTo(firstletter){
+  scrollToLetter(firstletter){
     var sectionindex=fletter.indexOf(firstletter);
-    var itemindex=0;
-    this._sectionList.scrollToLocation({
-      itemIndex:-1,
+    this.sectionListRef.scrollToLocation({
+      itemIndex:-2.5,
       viewPosition:0,
       sectionIndex:sectionindex,
-      // sectionindex,
-      // itemindex,
       animated: true
     });
   }
@@ -80,40 +103,34 @@ export default class StationList extends Component{
       onPress={() =>{
         if(this.props.store.startInput){
           this.props.store.start=item;
-          // this.props.store.start=item;
         }
         else {
           if(this.props.store.destinationInput){
             this.props.store.destination=item;
-            // this.props.store.destination=item;
-          }
-        }
-      }}
+      }}}}
     >
       <Text style={styles.item}>{item}</Text>
     </TouchableOpacity>
     );
   }
 
-  // selectStation(){
-  //   // this._textInput.defaulValue="121212";
-  // }
-
+// SectionSeparatorComponent={({item}) => <View style={styles.sectionsperator}>{item}</View>}
   sectionListComponent(){
       return(
         <View style={styles.listcontainer}>
             <SectionList
-              keyboardShouldPersistTaps="false"
+              keyboardShouldPersistTaps="always"
 
-              ref={sectionList => this._sectionList=sectionList}
+              ref={sectionList => this.sectionListRef=sectionList}
               sections={this.getStationsData()}
               renderItem={({item}) => this.renderStation(item)}
               renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.key}</Text>}
               stickySectionHeadersEnabled={true}
               ItemSeparatorComponent={({item}) => <View style={styles.itemsperator}>{item}</View>}
-              SectionSeparatorComponent={({item}) => <View style={styles.sectionsperator}>{item}</View>}
+
               getItemLayout={(data,index) => (
                 {length:(itemheight+itemsperatorheight),offset:(itemheight+itemsperatorheight)*index,index}
+                // {length:46,offset:46*index,index}
               )}
             />
               <ScrollView
@@ -140,7 +157,7 @@ export default class StationList extends Component{
   const styles = StyleSheet.create({
     listcontainer: {
      flex: 1,
-     paddingTop: 2,
+    //  paddingTop: 2,
      flexDirection: 'row',
      justifyContent: 'center',
      backgroundColor: 'white',

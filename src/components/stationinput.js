@@ -7,7 +7,8 @@ import  {
   TouchableOpacity,
   TextInput,
   Button,
-  Image
+  Image,
+  TouchableHighlight
  } from 'react-native';
  import {
    fletter,
@@ -19,9 +20,11 @@ import  {
    screenwidth,
    screenheight
  } from './constant';
- import { BLUESTYLECOLOR } from './constant';
-import {inject, observer} from 'mobx-react';
-import Icon from 'react-native-vector-icons/FontAwesome';
+ import { BLUESTYLECOLOR,RESULTPAGE } from './constant';
+import {inject, observer,autorun} from 'mobx-react';
+// import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
+import SearchList from '@unpourtous/react-native-search-list';
 
 @inject("store") @observer
 export default class StationInput extends Component{
@@ -35,36 +38,17 @@ export default class StationInput extends Component{
     this.props.store.destination=start;
     this.props.store.start=destination;
   }
-          // ref={textInput => this._textInputq=textInput}
 
-          // <Button
-          //   style={styles.exchangebutton}
-          //   title="eeee"
-          //   color='#0f5fd7'
-          //   onPress={()=>{this.exchange()}}
-          // >
-          // </Button>
-          // <TouchableOpacity
-          //   onPress={()=>{this.exchange()}}
-          //   activeOpacity={0.8}
-          // >
-          //   <Image
-          //     source={require('./jt.jpg')}
-          //     style={styles.exchangeimage}
-          //   />
-          // </TouchableOpacity>
   render(){
     return(
       <View style={styles.buttoncontainer}>
-        <Icon.Button
+
+        <Icon
           style={styles.exchangebutton}
-          name="arrows-v"
+          name="md-repeat"
+          size={30}
           onPress={()=>{this.exchange()}}
         />
-
-
-
-
 
         <View style={styles.inputcontainer}>
           <View style={styles.tipinputcontainer}>
@@ -74,7 +58,8 @@ export default class StationInput extends Component{
             <TextInput
               style={styles.input}
               placeholder="输入起点"
-              placeholderTextColor='#e7f0fd'
+              placeholderTextColor='#ccc'
+              // placeholderTextColor='#e7f0fd'
               underlineColorAndroid='transparent'
               selectionColor ='#0d54bf'
               onFocus={() =>{
@@ -82,7 +67,11 @@ export default class StationInput extends Component{
               }}
               onBlur={() =>{this.props.store.startInput=false}}
               defaultValue={this.props.store.start}
-              onChangeText={(text) => {this.props.store.start=text}}
+              onChangeText={(text) => {
+                this.props.store.start=text;
+
+              }}
+              keyboardType="number-pad"
             />
           </View>
           <View style={styles.tipinputcontainer}>
@@ -92,7 +81,8 @@ export default class StationInput extends Component{
             <TextInput
               style={styles.input}
               placeholder="输入终点"
-              placeholderTextColor='#e7f0fd'
+              // placeholderTextColor='#e7f0fd'
+              placeholderTextColor='#ccc'
               underlineColorAndroid='transparent'
               selectionColor ='#0d54bf'
               onFocus={() =>{this.props.store.destinationInput=true}}
@@ -103,20 +93,113 @@ export default class StationInput extends Component{
           </View>
         </View>
 
-        <Button
-          style={styles.researchbutton}
-          color='#0f5fd7'
-          title="ssss"
-          // onPress={() => {}}
-        >
-        </Button>
-      </View>
+        <View style={styles.searchbuttoncont}>
 
+          <TouchableHighlight
+            style={styles.searchbutton}
+            onPress={() => this.props.store.navigate(RESULTPAGE)}
+
+          >
+            <Text
+              style={styles.searchtext}
+            >搜路线</Text>
+          </TouchableHighlight>
+        </View>
+      </View>
     );
   }
 }
+// <Icon
+//   style={styles.exchangebutton}
+//   name="md-search"
+//   size={30}
+//   onPress={()=>{this.exchange()}}
+// />
 
 
+// //plan1
+// const styles=StyleSheet.create({
+//   tipinputcontainer:{
+//     flexDirection: 'row',
+//     alignItems:'center',
+//     marginTop:10,
+//     width:getWidthPercent(70),
+//     height:getHeightPercent(5),
+//     backgroundColor:'#70a5f5',
+//     borderRadius: 4,
+//   },
+//   inputcontainer:{
+//     flexDirection: 'column',
+//     justifyContent: 'center',
+//     alignItems:'center',
+//     // paddingTop: 10,
+//     paddingBottom: 8,
+//     width:getWidthPercent(70),
+//     height:getHeightPercent(18),
+//   },
+//   buttoncontainer:{
+//     flexDirection: 'row',
+//     justifyContent:'space-around',
+//     alignItems:'center',
+//     backgroundColor:'#4389f2'
+//
+//   },
+//   // searchbuttoncont:{
+//   //   alignItems:'center'
+//   // },
+//   tiptext:{
+//     fontSize:14,
+//     // paddingTop: 8.5,
+//     // paddingBottom: 10,
+//     // paddingRight: 10,
+//     paddingLeft: 10,
+//     color:'#cfe1fc'
+//   },
+//   exchangebutton:{
+//     alignItems:'center',
+//
+//     // width:getWidthPercent(15),
+//     // height:getWidthPercent(15),
+//     color:"#fff",
+//     // backgroundColor:"#000",
+//     paddingLeft: 9,
+//     // paddingRight: 1,
+//     // opacity: 0.1
+//   },
+//   searchtext:{
+//     color:"#e7f0fd",
+//     //  color:"#79a6d2",
+//     fontSize:17,
+//     marginTop:getHeightPercent(3.5),
+//     // marginLeft:getHeightPercent(1.6)
+//   },
+//   searchbutton:{
+//     borderRadius: 6,
+//     height:getHeightPercent(10)+10,
+//     width:getWidthPercent(13),
+//     // backgroundColor:'#d9e6f2',
+//     backgroundColor:'#1069ef',
+//     paddingBottom: 8,
+//   },
+//   input:{
+//     paddingTop: 5,
+//     paddingLeft: 10,
+//     // paddingRight: 10,
+//     paddingBottom: 7.5,
+//     // marginTop:10,
+//     width:getWidthPercent(60),
+//     height:getHeightPercent(5),
+//     // borderWidth: 1,
+//     // backgroundColor:'#70a5f5',
+//     fontSize:15,
+//     borderColor: '#000',
+//     // borderBottomWidth: 5
+//     // flex:1,
+//     color:'#fff'
+//   },
+// })
+
+//plan2
 const styles=StyleSheet.create({
   tipinputcontainer:{
     flexDirection: 'row',
@@ -124,8 +207,10 @@ const styles=StyleSheet.create({
     marginTop:10,
     width:getWidthPercent(70),
     height:getHeightPercent(5),
-    backgroundColor:'#70a5f5',
+    backgroundColor:'#fff',
     borderRadius: 4,
+    borderColor: '#4087f2',
+    borderWidth:1
   },
   inputcontainer:{
     flexDirection: 'column',
@@ -135,37 +220,50 @@ const styles=StyleSheet.create({
     paddingBottom: 8,
     width:getWidthPercent(70),
     height:getHeightPercent(18),
-
   },
   buttoncontainer:{
     flexDirection: 'row',
     justifyContent:'space-around',
     alignItems:'center',
-    backgroundColor:'#4389f2'
+    // backgroundColor:'#4389f2'
+    backgroundColor: '#e7f0fd'
   },
+  // searchbuttoncont:{
+  //   alignItems:'center'
+  // },
   tiptext:{
     fontSize:14,
     // paddingTop: 8.5,
     // paddingBottom: 10,
     // paddingRight: 10,
     paddingLeft: 10,
-    color:'#cfe1fc'
+    color:'#b3b3b3'
   },
   exchangebutton:{
     alignItems:'center',
 
-    width:getWidthPercent(7),
-    height:getWidthPercent(7),
-    backgroundColor:BLUESTYLECOLOR,
+    // width:getWidthPercent(15),
+    // height:getWidthPercent(15),
+    color:"#0d54bf",
+    // backgroundColor:"#000",
     paddingLeft: 9,
-    paddingRight: 1,
+    // paddingRight: 1,
     // opacity: 0.1
-
+  },
+  searchtext:{
+    // color:"#e7f0fd",
+     color:"#fff",
+    fontSize:17,
+    marginTop:getHeightPercent(3.5),
+    // marginLeft:getHeightPercent(1.6)
   },
   searchbutton:{
-
-    width:getWidthPercent(20)
-
+    borderRadius: 6,
+    height:getHeightPercent(10)+10,
+    width:getWidthPercent(13),
+    backgroundColor:'#4087f2',
+    // backgroundColor:'#235dcc',
+    paddingBottom: 8,
   },
   input:{
     paddingTop: 5,
@@ -181,8 +279,6 @@ const styles=StyleSheet.create({
     borderColor: '#000',
     // borderBottomWidth: 5
     // flex:1,
-    color:'#fff'
+    color:'#000'
   },
-
-
 })

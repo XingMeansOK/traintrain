@@ -17,7 +17,8 @@
     "react-native-bottom-sheet-behavior": "^1.0.0-beta.6",
     "react-native-vector-icons": "^4.3.0",
     "react-native-viewpager": "^0.2.13",
-    "react-navigation": "^1.0.0-beta.11"
+    "react-navigation": "^1.0.0-beta.11",
+    "react-native-chinese2pinyin": "file:.../src/pinyin"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
