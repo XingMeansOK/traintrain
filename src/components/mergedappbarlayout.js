@@ -10,7 +10,7 @@ import {
   BottomSheetBehavior
 } from 'react-native-bottom-sheet-behavior';
 import {inject, observer} from 'mobx-react';
-import { RESULTPAGE, INPUTPAGE, URL } from './constant';
+import { RESULTPAGE, INPUTPAGE, URL, CLASSIFYTYPES } from './constant';
 
 @inject("store") @observer
 export default class MergedAppBarLayoutWrapper extends Component {
@@ -53,9 +53,14 @@ export default class MergedAppBarLayoutWrapper extends Component {
     });
     try {
       let response = await fetch(request);
-      console.log("fetch request ", JSON.stringify(response.ok));
       if(response.ok){
           let responseJson = await response.json();
+          // 存入store前先对数据进行预处理
+          CLASSIFYTYPES.forEach( TYPE => {
+            // 每种分类下都是一个数组(元素是每一个方案)，便利数组，为每种方案添加一个是否选中的属性
+            responseJson[TYPE].forEach( plan => plan.selected = false );
+          })
+          this.props.store.planInfo = responseJson;
       }else{
           Alert.alert('提示','请求失败',[{text: '确定', onPress: () => console.log('OK Pressed!')},]);
       }

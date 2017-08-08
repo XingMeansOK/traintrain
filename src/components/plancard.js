@@ -10,27 +10,27 @@ import {inject, observer} from 'mobx-react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { MAXSELECTEDPLAN } from './constant';
 
-@inject("store") @observer
+@inject('store') @observer
 export default class PlanCard extends Component {
   constructor(props) {
     super(props);
     this.state = {expanded: false, selected: false};
-    this.icon = null;
+    this.planInfo = this.props.planInfo;
   }
   handlePress = () => {
     this.setState({expanded: !this.state.expanded})
   }
   handleSelect = () => {
     if(!this.state.selected) {
-      if(this.props.store.selectedPlan<MAXSELECTEDPLAN) {
-        this.props.store.selectedPlan++;
+      if(this.props.store.pickAbility) {
+        this.props.store.selectedPlans.add(this.planInfo);
         this.setState({selected: !this.state.selected});
       } else {
-        // Alert('过分了奧');
+        Alert.alert('提示','满了',[{text: '确定', onPress: () => console.log('OK Pressed!')},]);
       }
 
     } else {
-      this.props.store.selectedPlan--;
+      this.props.store.selectedPlans.delete(this.planInfo);
       this.setState({selected: !this.state.selected});
     }
 

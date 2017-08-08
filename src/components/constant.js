@@ -2,7 +2,7 @@ import  {
   Dimensions
  } from 'react-native';
 
-export const fletter=['A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','W','X','Y','Z'];
+export const FLETTER=['A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','W','X','Y','Z'];
 export const itemheight=44;
 export const sectionsperatorheight=3;
 export const itemsperatorheight=2;
@@ -30,3 +30,4 @@ export const BLUESTYLECOLOR = '#4389f2';
 export const WHITE = '#FFFFFF';
 export const MAXSELECTEDPLAN = 3;
 export const URL = "http://192.168.0.126:3000/users/";
+export const CLASSIFYTYPES = ['type1', 'type2', 'type2'];

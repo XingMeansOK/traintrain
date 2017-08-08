@@ -24,7 +24,6 @@ import  {
 import {inject, observer,autorun} from 'mobx-react';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/Ionicons';
-import SearchList from '@unpourtous/react-native-search-list';
 
 @inject("store") @observer
 export default class StationInput extends Component{

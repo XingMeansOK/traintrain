@@ -33,20 +33,6 @@ export default class Mappage extends Component {
 
   render() {
 
-    // <FloatingActionButton
-    //   autoAnchor
-    //   elevation={18}
-    //   rippleEffect={true}
-    //   rippleColor="grey"
-    //   icon="md-list-box"
-    //   iconProvider={Icon}
-    //   iconColor={WHITE}
-    //   iconColorExpanded={BLUESTYLECOLOR}
-    //   onPress={() => this.props.store.navigate(RESULTPAGE)}
-    //   backgroundColor={BLUESTYLECOLOR}
-    //   backgroundColorExpanded={WHITE}
-    // />
-
     return (
       <CoordinatorLayout style={styles.container}>
         <StatusBar translucent backgroundColor='#205cb2' />

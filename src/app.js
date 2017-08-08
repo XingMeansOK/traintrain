@@ -17,9 +17,9 @@ import {appStore} from './store/store';// 用于保存app所有的状态和数�
   pages[MAPPAGE] = { screen: Mappage };就相当于pages.Mappage = { screen: Mappage };
 */
 let pages = {}; // 创建一个空的对象，let是es6中定义变量的关键字，具有块级作用域
-// pages[MAPPAGE] = { screen: Mappage };
-// pages[RESULTPAGE] = { screen: Resultpage };
-pages[INPUTPAGE] = { screen: Inputpage };
+pages[MAPPAGE] = { screen: Mappage };
+pages[RESULTPAGE] = { screen: Resultpage };
+// pages[INPUTPAGE] = { screen: Inputpage };
 
 /*
 @deprecated StackNavigator返回一个组件  StackPages
@@ -28,7 +28,7 @@ pages[INPUTPAGE] = { screen: Inputpage };
 
 改用TabNavigator，超图的地图在StackNavigator中有bug，来回翻页几次就不能动了
 */
-const StackPages = TabNavigator(pages,
+const TabPages = TabNavigator(pages,
   {
       swipeEnabled: false
   }
@@ -38,7 +38,7 @@ class Traintrain extends React.Component {
   render() {
     return (
       <Provider store={appStore}>
-        <StackPages/>
+        <TabPages/>
       </Provider>
     )
   }

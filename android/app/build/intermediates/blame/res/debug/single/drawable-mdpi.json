@@ -16,12 +16,12 @@
         "source": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-mdpi\\abc_list_focused_holo.9.png"
     },
     {
-        "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_70100.png",
-        "source": "E:\\workspace\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_70100.png"
-    },
-    {
         "merged": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_list_divider_mtrl_alpha.9.png",
         "source": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-mdpi\\abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_70100.png",
+        "source": "E:\\workspace\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_70100.png"
     },
     {
         "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png",
@@ -48,12 +48,12 @@
         "source": "E:\\workspace\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_30308.png"
     },
     {
-        "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_star.png",
-        "source": "E:\\workspace\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_star.png"
-    },
-    {
         "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_ic_menu_copy_mtrl_am_alpha.png",
         "source": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-mdpi\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_star.png",
+        "source": "E:\\workspace\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_star.png"
     },
     {
         "merged": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_40503.png",
@@ -108,20 +108,20 @@
         "source": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-mdpi\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
-        "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_30709.png",
-        "source": "E:\\workspace\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_30709.png"
-    },
-    {
         "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_56.png",
         "source": "E:\\workspace\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_56.png"
     },
     {
-        "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_reactnavigation_src_views_assets_backicon.png",
-        "source": "E:\\workspace\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_reactnavigation_src_views_assets_backicon.png"
+        "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_30709.png",
+        "source": "E:\\workspace\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_30709.png"
     },
     {
         "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_btn_check_to_on_mtrl_015.png",
         "source": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-mdpi\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_reactnavigation_src_views_assets_backicon.png",
+        "source": "E:\\workspace\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_reactnavigation_src_views_assets_backicon.png"
     },
     {
         "merged": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_ic_ab_back_mtrl_am_alpha.png",
