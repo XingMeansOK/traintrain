@@ -29,5 +29,6 @@ export const PEEKHEIGHT = 80;
 export const BLUESTYLECOLOR = '#4389f2';
 export const WHITE = '#FFFFFF';
 export const MAXSELECTEDPLAN = 3;
-export const URL = "http://192.168.0.126:3000/users/";
+export const URL = "http://[2001:250:4001:203:8c43:1025:7327:5459]:3000/users/"; //宿舍用ip（ipv6）
+// export const URL = "http://192.168.0.126:3000/users/";  // 这个是连telecarto3的时候的ip
 export const CLASSIFYTYPES = ['type1', 'type2', 'type2'];

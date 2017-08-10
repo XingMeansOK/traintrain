@@ -13,7 +13,7 @@ import {
   CoordinatorLayout,
   FloatingActionButton,
 } from 'react-native-bottom-sheet-behavior';
-import SMap from './map';
+// import SMap from './map';
 import BottomSheetBehaviorWrapper from './bottomsheetbehavior';
 import MergedAppBarLayoutWrapper from './mergedappbarlayout';
 import {inject, observer} from 'mobx-react';
@@ -23,8 +23,9 @@ import { INPUTPAGE, RESULTPAGE, BLUESTYLECOLOR, WHITE } from './constant';
 export default class Mappage extends Component {
   constructor(props) {
     super(props);
+    // 将tab页之间的导航函数保存到store中，方便全局在任何地方都能调用
     const { navigate } = props.navigation;
-    props.store.navigate = navigate;
+    props.store.navigate = props.store.navigate? props.store.navigate:navigate;
   }
   static navigationOptions = {
     // header: null
@@ -48,7 +49,6 @@ export default class Mappage extends Component {
             onIconClicked={() => this.props.store.navigate(INPUTPAGE)}
             />
         </ScrollingAppBarLayout>
-          <SMap/>
         <BottomSheetBehaviorWrapper/>
         <MergedAppBarLayoutWrapper/>
       </CoordinatorLayout>

@@ -11,10 +11,13 @@ import PlanCard from './plancard';
 import ViewPager from 'react-native-viewpager';
 import { ANCHORPOINT, PEEKHEIGHT, BLUESTYLECOLOR, MAPPAGE, INPUTPAGE, CLASSIFYTYPES } from './constant';
 import Icon from 'react-native-vector-icons/Ionicons';
+import ActionButton from 'react-native-action-button';
 import { autorun } from 'mobx';
-import { inject, observer } from 'mobx-react';
+import { inject, observer, computed } from 'mobx-react';
 const { height, width } = Dimensions.get('window');
-
+/*
+  用于展示所有查询结果的页面，按照规定的分类方式，将推荐的乘车方案分别展示于几页当中
+*/
 @inject("store") @observer
 export default class Resultpage extends Component {
   static navigationOptions = {
@@ -23,55 +26,42 @@ export default class Resultpage extends Component {
   }
   constructor(props) {
     super(props);
+    // 将tab页之间的导航函数保存到store中，方便全局在任何地方都能调用
     const { navigate } = props.navigation;
     props.store.navigate = props.store.navigate? props.store.navigate:navigate;
-
+    // 创建viewpager的数据源
     this.dataSource = new ViewPager.DataSource({
       pageHasChanged: (p1, p2) => p1 !== p2,
     });
+    // 持有viewpager的ref，用于viewpager页面间的跳转
     this.viewpager = null;
+    // state中保存当前页面的索引
     this.state = {
-      dataSource: null,
       currentPage:0
     }
-    /*
-      首先哈，缩一下这个操蛋的问题哈
-      viewpager他的这个dataSource.cloneWithPages(pages)方法哈，尼玛只能在构造函数利用？？？然后哈，尼玛mobx的observable数据穿进去用不了？？？
-      然后哈，尼玛这还怎么自动render了，尼玛还必须得dataSource.cloneWithPages(pages)放state里？？？
-
-      尼玛幸好机制啊，构造函数里放个autorun。好滴下面开始解释代码
-      首先autorun写出来就会马上执行一次，所以在第一次render的时候还是有数据源的，虽然没有数据
-      之后哈，当我从服务器中抓出来乘车方案之后哈，存到store里了么，store这不变了么，autorun里面不用到了store的数据了么，然后autorun就会执行了
-      然后给这个viewpager更新数据源，然后抓过来的方案就渲染上了
-    */
-    const disposer = autorun(() => {
-    // 先对数据进行预处理(observable的数据类型不能直接用)
-      let pages = this.props.store.planInfo?
-        CLASSIFYTYPES.map( TYPE => this.props.store.planInfo[TYPE] )
-        : [];// 每种分类下都是一个数组(元素是每一个方案)
-
-      this.state.dataSource?
-        this.setState({dataSource: this.dataSource.cloneWithPages(pages)})
-        : this.state.dataSource = this.dataSource.cloneWithPages(pages);
-    })
   }
-
+  /*
+    渲染viewpager每一页的内容，每一页中使用PlanCard来表示一个具体方案
+  */
   renderViewPagerPage = (data) => {
     return(
       <ScrollView style={styles.page}>
-        <PlanCard/>
-        <PlanCard/>
+        {data.map( (planInfo, index) => <PlanCard key={index} planInfo={planInfo}/> )}
       </ScrollView>
     )
   }
 
+  /*
+    因为render方法中使用了store中@computed的数据pages，所以，当pages改变的时候，render就会自动调用
+    ps： pages会因为从服务器中取得数据就自动改变
+  */
   render() {
 
     return (
       <View style={{flex: 1, backgroundColor: '#ccc'}}>
         <ViewPager
           ref={(viewpager) => {this.viewpager = viewpager}}
-          dataSource={this.state.dataSource}
+          dataSource={this.dataSource.cloneWithPages(this.props.store.pages)}
           renderPage={this.renderViewPagerPage}
           onChangePage={(page) => {this.setState({currentPage:page})}}
         />

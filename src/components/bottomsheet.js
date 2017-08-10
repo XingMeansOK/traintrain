@@ -9,35 +9,42 @@ import {inject, observer} from 'mobx-react';
 import ViewPager from 'react-native-viewpager';
 import { ANCHORPOINT, PEEKHEIGHT, BLUESTYLECOLOR } from './constant';
 const { height, width } = Dimensions.get('window');
-
+/*
+  地图页下方的活动页的内容
+  主要包括三部分bottomSheetHeader，一个ViewPager，bottomSheetContent
+  viewpager的作用是展示在resultpage选中的乘车方案，bottomsheetcontent中展示当前viewpager显示方案的详细信息
+  同时，viewpager在切换到一个方案的时候，地图上渲染的就是对应的方案
+*/
 @inject("store") @observer
 export default class BottomSheet extends Component {
   constructor(props) {
     super(props);
-    var dataSource = new ViewPager.DataSource({
+    // 创建viewpager的数据源
+    this.dataSource = new ViewPager.DataSource({
       pageHasChanged: (p1, p2) => p1 !== p2,
     });
-    const PAGES = ['Page 1','Page 2','Page 3','Page 4','Page 5'];
     this.state = {
-      dataSource: dataSource.cloneWithPages(PAGES),
       currentPage:0
     }
   }
-
+  /*
+    渲染viewpager每一页的方法
+  */
   renderViewPagerPage = (data) => {
     return(<View style={styles.page}>
-      <Text>{data}</Text>
+      <Text>{data.index||data}</Text>
     </View>)
   }
 
-  render() {
+  render() { // (observable的数据类型不能给viewpager直接用？？？不清楚。。。)
     return (
       <View style={styles.bottomSheet}>
         <View style={styles.bottomSheetHeader}>
           <Text style={styles.label}>可以划</Text>
         </View>
         <ViewPager
-          dataSource={this.state.dataSource}
+          ref={(viewpager) => {this.viewpager = viewpager}}
+          dataSource={this.dataSource.cloneWithPages(this.props.store.cabinet)}
           renderPage={this.renderViewPagerPage}
           onChangePage={(page) => {this.setState({currentPage:page})}}
         />
