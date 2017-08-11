@@ -31,9 +31,11 @@ export default class BottomSheet extends Component {
     渲染viewpager每一页的方法
   */
   renderViewPagerPage = (data) => {
-    return(<View style={styles.page}>
-      <Text>{data.index||data}</Text>
-    </View>)
+    const content = typeof data == "string"? data: data.index;
+    return(
+      <View style={styles.page}>
+        <Text>{content}</Text>
+      </View>)
   }
 
   render() { // (observable的数据类型不能给viewpager直接用？？？不清楚。。。)
