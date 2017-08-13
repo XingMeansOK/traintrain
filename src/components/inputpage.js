@@ -38,7 +38,8 @@ export default class Inputpage extends Component {
     const store = this.store;
     return (
       <View style={styles.container}>
-        <StatusBar  translucent backgroundColor= {HEADERCOLOR} />
+
+        <StatusBar backgroundColor= {HEADERCOLOR} />
         <View style={styles.headercont} >
           <Icon
             style={styles.backbutton}

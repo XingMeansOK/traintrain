@@ -10,7 +10,7 @@ import {
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 import ViewPager from 'react-native-viewpager';
-import { ANCHORPOINT, PEEKHEIGHT, BLUESTYLECOLOR,getWidthPercent,getHeightPercent,ICONCOLOR } from './constant';
+import { ANCHORPOINT, PEEKHEIGHT, BLUESTYLECOLOR,getWidthPercent,getHeightPercent,ICONCOLOR,TRANSFCOLOR } from './constant';
 import Collapsible from 'react-native-collapsible';
 import Icon from 'react-native-vector-icons/Ionicons';
 // import {Icon as Iconaf} from 'react-native-vector-icons/FontAwesome';
@@ -36,7 +36,8 @@ export default class BottomSheet extends Component {
     this.state = {
       currentPage:0,
       collapsedstart: true,
-      collapseddestination: true,
+      collapsedtransf1: true,
+      collapsedtransf2: true,
     }
   }
   /*
@@ -58,26 +59,6 @@ export default class BottomSheet extends Component {
     }
     return (arrive);
   }
-
-  transstation(){
-    var trans=[];
-    trans.push(once[0].stations[0][0].name);
-    trans.push(once[0].stations[0][once[0].stations[0].length-1].name);
-    trans.push(once[0].stations[1][once[0].stations[1].length-1].name);
-    console.log(trans);
-    return trans;
-  }
-
-
-  getPassStation(ways){
-    var passstation=[];
-    var passtime=[];
-    for(var a in result.once[ways]){
-
-    }
-  }
-
-
 
   renderViewPagerPage = (data) => {
     // const content = typeof data == "string"? data: data.index;
@@ -105,43 +86,245 @@ export default class BottomSheet extends Component {
       </View>)
 
   }
-  // <View style={styles.stationhidecont}>
-  //   <Icon
-  //     name='ios-walk'
-  //     size={36}/>
-  //   <View style={styles.stationlistcont}>
-  //     <View style={styles.icontxtcont}>
-  //       <Icon
-  //         name='md-arrow-dropdown-circle'
-  //         style={styles.lefticon}
-  //         color={ICONCOLOR}
-  //         size={15}/>
-  //       <Text style={styles.transftxt}>站内换乘站</Text>
-  //     </View>
-  //     <Collapsible collapsed={this.state.collapsedtranf1}>
-  //     <ScrollView>
-  //       <Text style={styles.passtxt}>途径站点</Text>
-  //       <Text style={styles.passtxt}>途径站点</Text>
-  //       <Text style={styles.passtxt}>途径站点</Text>
-  //       <Text style={styles.passtxt}>途径站点</Text>
-  //     </ScrollView>
-  //     </Collapsible>
-  //   </View>
-  //   <TouchableOpacity
-  //     onPress={() => {this.setState({ collapsedtranf1: !this.state.collapsedtranf1 });}}
-  //   >
-  //     <View style={styles.stanumcont}>
-  //       <Text style={styles.stanumtxt}>{5}站</Text>
-  //       <Icon
-  //         style={styles.downbtn}
-  //         name="ios-arrow-down"
-  //         size={15}
-  //       />
-  //     </View>
-  //   </TouchableOpacity>
-  // </View>
+  renderStrat(){
+    return(
+      <View style={styles.allcontainer}>
+      <View style={styles.icontimecont}>
+        <Icon
+          name='ios-train'
+          color={ICONCOLOR}
+          size={30}/>
+        <Text style={{color:ICONCOLOR}}>{18}小时</Text>
+      </View>
+      <View style={styles.stationhidecont}>
+
+        <View style={styles.stationlistcont}>
+          <View style={styles.icontxtcont}>
+            <Icon
+              name='md-arrow-dropdown-circle'
+              style={styles.lefticon}
+              color={ICONCOLOR}
+              size={15}/>
+            <View style={{flexDirection:'column',alignItems:'center'}}>
+              <Text style={styles.starttxt}>北京站</Text>
+              <Text style={styles.trainnumtxt}>G101</Text>
+            </View>
+            <Text style={styles.trftimetxt}>发:{9}:{35}</Text>
+            <TouchableOpacity
+              onPress={() => {this.setState({ collapsedstart: !this.state.collapsedstart });}}
+            >
+              <View style={styles.stanumcont}>
+                <Text style={styles.stanumtxt}>{17}站</Text>
+                <Icon
+                  style={styles.downbtn}
+                  name="ios-arrow-down"
+                  size={15}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View style={{flexDirection:'row'}}>
+            <View style={{width:3,backgroundColor:ICONCOLOR,marginLeft:4.5,marginTop:-30}}/>
+            <Collapsible collapsed={this.state.collapsedstart}>
+              <ScrollView>
+                <View style={{flexDirection:'row',alignItems:'center'}}>
+                  <Text style={styles.passtxt}> ·途径站点</Text>
+                  <Text>到:{10}:{35}</Text>
+                  <Text>  </Text>
+                  <Text>发:{10}:{37}</Text>
+                </View>
+                <Text style={styles.passtxt}> · 途径站点</Text>
+                <Text style={styles.passtxt}> ·途径站点</Text>
+                <Text style={styles.passtxt}> ·途径站点</Text>
+              </ScrollView>
+            </Collapsible>
+          </View>
+        </View>
+      </View>
+      </View>
+    )
+  }
+  renderTransInSta(){
+    return(
+      <View style={styles.allcontainer}>
+      <View style={styles.icontimecont}>
+        <Icon
+          name='md-walk'
+          size={29}
+          color={TRANSFCOLOR}
+          style={{marginTop:0}}
+        />
+        <Text style={{color:TRANSFCOLOR}}>{1}小时</Text>
+      </View>
+      <View style={styles.stationhidecont}>
+
+        <View style={styles.stationlistcont}>
+          <View style={styles.icontxtcont}>
+            <Icon
+              name='md-arrow-dropdown-circle'
+              style={ {marginRight:5,marginTop:1.5}}
+              color={TRANSFCOLOR}
+              size={15}/>
+            <View style={{flexDirection:'column',alignItems:'flex-start'}}>
+              <Text style={styles.transftxt}>武汉站</Text>
+              <View style={{flexDirection:'row',alignItems:'center',marginTop:5}}>
+                <Icon
+                  name='md-sync'
+                  size={22}
+                  style={{marginLeft:10,marginRight:3,color:'#b3b3b3'}}
+                />
+                <Text style={styles.othertxt}>站内换乘</Text>
+              </View>
+            </View>
+            <Text style={styles.trftimetxt}>到:{13}:{35}</Text>
+          </View>
+          <View>
+            <View style={{width:3,backgroundColor:ICONCOLOR,marginLeft:4.5,marginTop:-80,height:39}}/>
+          </View>
+          <View>
+            <View style={{width:3,backgroundColor:TRANSFCOLOR,marginLeft:4.5,marginTop:-28,height:28}}/>
+          </View>
+        </View>
+      </View>
+        </View>
+    )
+  }
+
+  renderTransInCity(){
+    return(
+      <View style={styles.allcontainer}>
+      <View style={styles.icontimecont}>
+        <Icon
+          name='md-bus'
+          size={28}
+          color={TRANSFCOLOR}
+        />
+        <Text style={{color:TRANSFCOLOR}}>{1}小时</Text>
+      </View>
+      <View style={styles.stationhidecont}>
+
+        <View style={styles.stationlistcont}>
+          <View style={styles.icontxtcont}>
+            <Icon
+              name='md-arrow-dropdown-circle'
+              style={ {marginRight:5,marginTop:1.5}}
+              color={TRANSFCOLOR}
+              size={15}/>
+            <View style={{flexDirection:'column',alignItems:'flex-start'}}>
+              <Text style={styles.transftxt}>汉口站</Text>
+              <View style={{flexDirection:'row',alignItems:'center',marginTop:5}}>
+                <Icon
+                  name='md-sync'
+                  size={22}
+                  style={{marginLeft:10,marginRight:3,color:'#b3b3b3'}}
+                />
+                <Text style={styles.othertxt}>市内换乘</Text>
+              </View>
+            </View>
+            <Text style={styles.trftimetxt}>到:{13}:{35}</Text>
+          </View>
+          <View>
+            <View style={{width:3,backgroundColor:ICONCOLOR,marginLeft:4.5,marginTop:-80,height:39}}/>
+          </View>
+          <View>
+            <View style={{width:3,backgroundColor:TRANSFCOLOR,marginLeft:4.5,marginTop:-28,height:28}}/>
+          </View>
+        </View>
+      </View>
+        </View>
+    )
+  }
+  // <View style={{width:3,backgroundColor:'red',marginTop:-90}}/>
+  renderTransf(){
+    return(
+      <View style={styles.allcontainer}>
+      <View style={styles.icontimecont}>
+        <Icon
+          name='ios-train'
+          size={30}
+          color={ICONCOLOR}
+        />
+        <Text style={{color:ICONCOLOR}}>{18}小时</Text>
+      </View>
+      <View style={styles.stationhidecont}>
+
+        <View style={styles.stationlistcont}>
+          <View style={styles.icontxtcont}>
+            <Icon
+              name='md-arrow-dropdown-circle'
+              style={styles.lefticon}
+              color={TRANSFCOLOR}
+              size={15}/>
+            <View style={{flexDirection:'column',alignItems:'center'}}>
+              <Text style={styles.starttxt}>武汉站</Text>
+              <Text style={styles.trainnumtxt}>G102</Text>
+            </View>
+            <Text style={styles.trftimetxt}>发:{14}:{35}</Text>
+
+            <TouchableOpacity
+              onPress={() => {this.setState({ collapsedtransf1: !this.state.collapsedtransf1 });}}
+            >
+              <View style={styles.stanumcont}>
+                <Text style={styles.stanumtxt}>{17}站</Text>
+                <Icon
+                  style={styles.downbtn}
+                  name="ios-arrow-down"
+                  size={15}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <View style={{width:3,backgroundColor:TRANSFCOLOR,marginLeft:4.5,marginTop:-80,height:45}}/>
+          </View>
+          <View style={{flexDirection:'row'}}>
+            <View style={{width:3,backgroundColor:ICONCOLOR,marginLeft:4.5,marginTop:-29}}/>
+            <Collapsible collapsed={this.state.collapsedtransf1}>
+              <ScrollView>
+                <View style={{flexDirection:'row',alignItems:'center'}}>
+                  <Text style={styles.passtxt}>·途径站点</Text>
+                  <Text style={styles.passtxt}>到:{10}:{35}</Text>
+                  <Text>  </Text>
+                  <Text>发:{10}:{37}</Text>
+                </View>
+                <Text style={styles.passtxt}>·途径站点</Text>
+                <Text style={styles.passtxt}>·途径站点</Text>
+                <Text style={styles.passtxt}>·途径站点</Text>
+              </ScrollView>
+            </Collapsible>
+          </View>
+        </View>
+      </View>
+    </View>
+    )
+  }
+
+  renderArrv(){
+    return(
+      <View style={styles.stationhidecont}>
+        <View style={styles.icontimecont} />
+
+        <View style={styles.stationlistcont}>
+        <View style={styles.icontxtcont}>
+
+          <Icon
+            name='ios-radio-button-on'
+            style={styles.lefticon}
+            color={ICONCOLOR}
+            size={15}/>
+          <Text style={styles.starttxt}>厦门站</Text>
+          <Text>到:{22}:{35}</Text>
+        </View>
+
+        <View style={{flexDirection:'row'}}>
+          <View style={{width:3,backgroundColor:ICONCOLOR,marginLeft:4.5,marginTop:-70,height:30}}/>
+        </View>
+          </View>
+        </View>
+    )
 
 
+  }
 
   render() { // (observable的数据类型不能给viewpager直接用？？？不清楚。。。)
     return (
@@ -156,169 +339,17 @@ export default class BottomSheet extends Component {
             renderPage={this.renderViewPagerPage}
             onChangePage={(page) => {this.setState({currentPage:page})}}
           />
-
-
-
           <View style={styles.bottomSheetContent}>
-            <ScrollView>
-            <View style={styles.stationhidecont}>
-              <View style={{flexDirection:'column',alignItems:'center'}}>
-                <Icon
-                  name='ios-train'
-                  size={30}/>
-                <Text>{18}小时</Text>
-              </View>
-              <View style={styles.stationlistcont}>
-                <View style={styles.icontxtcont}>
-                  <Icon
-                    name='md-arrow-dropdown-circle'
-                    style={styles.lefticon}
-                    color={ICONCOLOR}
-                    size={15}/>
-                  <View style={{flexDirection:'column'}}>
-                    <Text style={styles.starttxt}>始发站          </Text>
-                    <Text style={styles.starttxt}>G101</Text>
-                  </View>
-                  <Text>发:{9}:{35}</Text>
-                  <TouchableOpacity
-                    onPress={() => {this.setState({ collapsedstart: !this.state.collapsedstart });}}
-                  >
-                    <View style={styles.stanumcont}>
-                      <Text style={styles.stanumtxt}>{17}站</Text>
-                      <Icon
-                        style={styles.downbtn}
-                        name="ios-arrow-down"
-                        size={15}
-                      />
-                    </View>
-                  </TouchableOpacity>
-                </View>
-                <View style={{flexDirection:'row'}}>
-                  <View style={{width:3,backgroundColor:'blue',marginLeft:4.5,marginTop:-35}}/>
-                  <Collapsible collapsed={this.state.collapsedstart}>
-                  <ScrollView>
-                    <View style={{flexDirection:'row',alignItems:'center'}}>
-                      <Text style={styles.passtxt}>途径站点</Text>
-                      <Text>到:{10}:{35}</Text>
-                      <Text>  </Text>
-                      <Text>发:{10}:{37}</Text>
-                    </View>
-                    <Text style={styles.passtxt}>途径站点</Text>
-                    <Text style={styles.passtxt}>途径站点</Text>
-                    <Text style={styles.passtxt}>途径站点</Text>
-                  </ScrollView>
-                  </Collapsible>
-                </View>
-              </View>
-            </View>
+            <ScrollView
+              overScrollMode='always'
+            >
 
-
-
-            <View style={styles.stationhidecont}>
-              <View style={{flexDirection:'column',alignItems:'center'}}>
-                <Icon
-                  name='ios-walk'
-                  size={36}/>
-                <Text>{10}小时</Text>
-              </View>
-              <View style={styles.stationlistcont}>
-                <View style={styles.icontxtcont}>
-                  <Icon
-                    name='md-arrow-dropdown-circle'
-                    style={styles.lefticon}
-                    color={ICONCOLOR}
-                    size={15}/>
-                    <Text style={styles.starttxt}>换乘站1     </Text>
-                  <Text>到:{13}:{35}</Text>
-                </View>
-
-                <View style={{flexDirection:'row'}}>
-                  <View style={{width:3,backgroundColor:'green',marginLeft:4.5,marginTop:-90}}/>
-                </View>
-
-                <View style={styles.icontxtcont}>
-                  <Icon
-                    name='md-arrow-dropdown-circle'
-                    style={styles.lefticon}
-                    color={ICONCOLOR}
-                    size={15}/>
-                    <View style={{flexDirection:'column'}}>
-                      <Text style={styles.starttxt}>换乘站2         </Text>
-                      <Text style={styles.starttxt}>G102</Text>
-                    </View>
-
-                  <Text>发:{14}:{35}</Text>
-                </View>
-
-                <View style={{flexDirection:'row'}}>
-                  <View style={{width:3,backgroundColor:'red',marginLeft:4.5,marginTop:-90}}/>
-                </View>
-              </View>
-            </View>
-
-
-
-
-
-
-            <View style={styles.stationhidecont}>
-              <View style={{flexDirection:'column',alignItems:'center'}}>
-                <Icon
-                  name='ios-train'
-                  size={30}/>
-                <Text>{18}小时</Text>
-              </View>
-              <View style={styles.stationlistcont}>
-                <View style={styles.icontxtcont}>
-                  <Icon
-                    name='md-arrow-dropdown-circle'
-                    style={styles.lefticon}
-                    color={ICONCOLOR}
-                    size={15}/>
-                    <Text style={styles.starttxt}>终点站          </Text>
-                  <Text>到:{21}:{35}</Text>
-                  <TouchableOpacity
-                    onPress={() => {this.setState({ collapseddetination: !this.state.collapseddetination });}}
-                  >
-                    <View style={styles.stanumcont}>
-                      <Text style={styles.stanumtxt}>{5}站</Text>
-                      <Icon
-                        style={styles.downbtn}
-                        name="ios-arrow-down"
-                        size={15}
-                      />
-                    </View>
-                  </TouchableOpacity>
-                </View>
-                <View style={{flexDirection:'row'}}>
-                  <View style={{width:3,backgroundColor:'blue',marginLeft:4.5,marginTop:-90}}/>
-                  <Collapsible collapsed={this.state.collapseddetination}>
-                  <ScrollView>
-                    <View style={{flexDirection:'row',alignItems:'center'}}>
-                      <Text style={styles.passtxt}>途径站点</Text>
-                      <Text>到:{10}:{35}</Text>
-                      <Text>  </Text>
-                      <Text>发:{10}:{37}</Text>
-                    </View>
-                    <Text style={styles.passtxt}>途径站点</Text>
-                    <Text style={styles.passtxt}>途径站点</Text>
-                    <Text style={styles.passtxt}>途径站点</Text>
-                  </ScrollView>
-                  </Collapsible>
-                </View>
-              </View>
-            </View>
-
-
-
-
-
-
-
+              {this.renderStrat()}
+              {this.renderTransInSta()}
+              {this.renderTransf()}
+              {this.renderArrv()}
             </ScrollView>
           </View>
-
-
         </View>
       </View>
     )
@@ -327,16 +358,31 @@ export default class BottomSheet extends Component {
 
 const styles = StyleSheet.create({
 ////////////////////////new
+  allcontainer:{
+    flexDirection:'row',
+    alignItems:'flex-end'},
+  icontimecont:{
+    flexDirection:'column',
+    alignItems:'center',
+    backgroundColor:'#fff',
+    width:50,
+    marginTop:20
+    // paddingTop:50
+  },
   icontxtcont:{
     alignItems: 'center',
     flexDirection: 'row',
+    // backgroundColor:'#ff4d4d',
     backgroundColor:'#fff',
-    height:80
+    height:70,
+    width:getWidthPercent(80)
   },
   stationlistcont:{
     flexDirection: 'column',
     alignItems: 'flex-start',
-    backgroundColor:'#ffcccc',
+    // backgroundColor:'#ffcccc',
+    backgroundColor:'#fff',
+
     // marginBottom:50
     // width:300,
     // borderLeftWidth:2,
@@ -345,42 +391,72 @@ const styles = StyleSheet.create({
   stationhidecont:{
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor:'#999999'
+    backgroundColor:'#fff',
+    // backgroundColor:'#999999',
+    width:getWidthPercent(90),
+    // justifyContent:'space-between'
   },
   stanumcont:{
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft:100,
-    backgroundColor:"#ffffb3",
+    // marginLeft:120,
+    // paddingRight:10,
+    // marginRight:20,
+    backgroundColor:"#fff",
     borderWidth:1,
     borderColor:"red",
+    position:'relative',
+    right:1
 
 
   },
+  othertxt:{
+    fontSize:16,
+    color:'#b3b3b3'
+  },
   starttxt:{
+    fontSize:18,
+    marginLeft:8,
+    color:ICONCOLOR,
+    // backgroundColor:"#ccc"
+  },
+  trainnumtxt:{
     fontSize:17,
-
+    marginTop:3,
+    marginLeft:8,
+    backgroundColor:'#e7f0fd',
+    borderWidth:1,
+    borderColor:ICONCOLOR,
+    borderRadius:5,
+    color:ICONCOLOR,
+    paddingLeft:2,
+    paddingRight:2
   },
 
   transftxt:{
-    fontSize:17,
-
+    fontSize:18,
+    marginLeft:8,
+    color:TRANSFCOLOR
 
   },
   passtxt:{
     fontSize:15,
-    padding:2
+    padding:2,
+    marginLeft:5
   },
   stanumtxt:{
-    // marginRight:50,
+
     fontSize:15,
   },
   downbtn:{
-    // marginLeft:5,
-    marginRight:5
+    paddingLeft:3,
+    // marginRight:5
   },
   lefticon:{
     marginRight:5
+  },
+  trftimetxt:{
+    marginRight:50
   },
 
 
@@ -417,7 +493,12 @@ const styles = StyleSheet.create({
     margin:12,
     padding: 12,
     alignItems: 'center',
-    backgroundColor: '#ccc',
+    // backgroundColor: '#ccc',
+    backgroundColor: '#fff',
+    borderWidth:2,
+    borderColor:'#ccc',
+    borderRadius:5
+
   },
   label: {
     fontSize: 18,

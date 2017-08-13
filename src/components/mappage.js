@@ -32,11 +32,13 @@ export default class Mappage extends Component {
     tabBarVisible: false
   };
 
+
+
   render() {
 
     return (
       <CoordinatorLayout style={styles.container}>
-        <StatusBar translucent backgroundColor='#205cb2'/>
+        <StatusBar backgroundColor='#205cb2'/>
         <ScrollingAppBarLayout
           translucent
           style={styles.scrollAppBar}
@@ -58,7 +60,7 @@ export default class Mappage extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: '#fff',
   },
   scrollAppBar: {

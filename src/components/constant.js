@@ -34,6 +34,7 @@ export const URL = "http://[2001:250:4001:203:8c43:1025:7327:5459]:3000/query"; 
 // export const URL = "http://192.168.0.126:3000/users/";  // 这个是连telecarto3的时候的ip
 
 // //plan2
+export const TRANSFCOLOR ='#ff8080';
 export const HEADERCOLOR='#4389f2';
 export const ICONCOLOR = '#4389f2';
 export const BTNCOLOR = '#4389f2';
