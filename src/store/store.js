@@ -6,11 +6,13 @@ import {CLASSIFYTYPES, FLETTER, MAXSELECTEDPLAN} from '../components/constant';
 class AppStore {
   @observable stations = []; // 用于存放火车站站名及拼音
   @observable stationspinyin = [];
+  @observable timeincity=120;
+  @observable timeinstation=60;
   @observable bottomSheetRef = null;// mappage下方活动页bottomsheetbehavior的引用
   @observable navigate = null; // react-navigation的navigate的引用
   @observable startInput=false;
   @observable destinationInput=false;
-  @observable start = 'A'; // 用于存放用户输入的始发站
+  @observable start = ''; // 用于存放用户输入的始发站
   @observable destination = ''; // 用于存放用户输入的终点站
   @observable selectedPlans = []; // 要在第一页展示的方案
   /*
@@ -67,6 +69,66 @@ class AppStore {
   @computed get pickAbility() {
     return this.selectedPlans.length<MAXSELECTEDPLAN;
   }
+
+  @computed get viewPagerDataSource() {
+    // 设置数据源
+    let dataSource = new ViewPager.DataSource({
+      pageHasChanged: (p1, p2) => p1 !== p2,
+    });
+    dataSource.cloneWithPages(this.planInfo2);
+    return dataSource
+  }
+  @computed get sectionListIndexSta() {
+      var startpinyin=pinyin.getFullChars(this.start).toUpperCase();
+      let startletterfst=startpinyin.substr(0,1)||'A';
+      let sectionindex=(FLETTER.indexOf(startletterfst)!=-1) ? FLETTER.indexOf(startletterfst) : 22;
+      var secindex = sectionindex;
+      let itemindex=(this.start.length<2 || sectionindex==22 )? 0:getItemIndex();
+
+      getItemIndex=() => {
+        let find=false;
+        let itemindex=0;
+        for(let x=0;x<this.stations[sectionindex].station.pinyin.length;x++) {
+          let reg = new RegExp(`^${pinyin.getFullChars(this.start).toUpperCase()}`,'i');
+          if(reg.test(this.stations[sectionindex].station.pinyin[x])){
+            find=true;
+            itemindex=x;
+          break;}
+          else if(reg.test(this.stations[sectionindex].station.short[x])){
+            find=true;
+            itemindex=x;
+          break;}
+        }
+        if(find==false){
+          itemindex=0;}
+        return itemindex;
+      }
+      return {sectionindex,itemindex};
+      }
+  @computed get sectionListIndexDes() {
+      var despinyin=pinyin.getFullChars(this.destination).toUpperCase();
+      let desletterfst=despinyin.substr(0,1)||'A';
+      let sectionindex=(FLETTER.indexOf(desletterfst)!=-1) ? FLETTER.indexOf(desletterfst) : 22;
+      let itemindex=(this.destination.length<2 || sectionindex==22 )? 0:getItemIndex();
+      getItemIndex=() => {
+        let find=false;
+        let itemindex=0;
+        for(let x=0;x<this.stations[sectionindex].station.pinyin.length;x++) {
+          let reg = new RegExp(`^${pinyin.getFullChars(this.destination).toUpperCase()}`,'i');
+          if(reg.test(this.stations[sectionindex].station.pinyin[x])){
+            find=true;
+            itemindex=x;
+          break;}
+          else if(reg.test(this.stations[sectionindex].station.short[x])){
+            find=true;
+            itemindex=x;
+          break;}
+        }
+        if(find==false){itemindex=0;}
+        return itemindex;
+      }
+      return {sectionindex,itemindex};
+      }
 }
 
 export const appStore = new AppStore();

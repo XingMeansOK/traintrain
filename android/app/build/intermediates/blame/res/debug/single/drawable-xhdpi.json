@@ -32,6 +32,10 @@
         "source": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-xhdpi\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
+        "merged": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\node_modules_reactnavigation_src_views_assets_backicon.png",
+        "source": "E:\\js\\traintrain\\android\\app\\src\\main\\res\\drawable-xhdpi\\node_modules_reactnavigation_src_views_assets_backicon.png"
+    },
+    {
         "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\abc_textfield_search_activated_mtrl_alpha.9.png",
         "source": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-xhdpi\\abc_textfield_search_activated_mtrl_alpha.9.png"
     },

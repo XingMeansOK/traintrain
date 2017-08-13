@@ -17,7 +17,7 @@ export default class MergedAppBarLayoutWrapper extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: 'red'
+      color: '#205cb2'
     };
   }
 
@@ -87,7 +87,7 @@ export default class MergedAppBarLayoutWrapper extends Component {
             navIconName='md-arrow-round-down'
             overflowIconName='md-more'
             title='方案'
-            titleColor="#000"
+            titleColor="#fff"
             style={{elevation: 6}}
             actions={[
               {title: 'Search', show: 'always', iconName: 'md-search'},

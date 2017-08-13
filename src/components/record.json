@@ -1,0 +1,479 @@
+{
+    "zero": [
+        {
+            "isFastest": "true",
+            "trainNumber": "K208",
+            "time": "2400",
+            "stations": [
+                {
+                    "name": "青岛",
+                    "arriveTime": "16:29",
+                    "startTime": "16:29"
+                },
+                {
+                    "name": "高密",
+                    "arriveTime": "17:50",
+                    "startTime": "18:4"
+                },
+                {
+                    "name": "潍坊",
+                    "arriveTime": "18:47",
+                    "startTime": "18:49"
+                },
+                {
+                    "name": "淄博",
+                    "arriveTime": "19:44",
+                    "startTime": "19:46"
+                },
+                {
+                    "name": "济南",
+                    "arriveTime": "20:54",
+                    "startTime": "21:2"
+                },
+                {
+                    "name": "泰山",
+                    "arriveTime": "21:54",
+                    "startTime": "21:57"
+                },
+                {
+                    "name": "磁窑",
+                    "arriveTime": "22:23",
+                    "startTime": "22:33"
+                },
+                {
+                    "name": "兖州",
+                    "arriveTime": "23:8",
+                    "startTime": "23:11"
+                },
+                {
+                    "name": "滕州",
+                    "arriveTime": "23:49",
+                    "startTime": "23:51"
+                },
+                {
+                    "name": "枣庄西",
+                    "arriveTime": "0:13",
+                    "startTime": "0:16"
+                },
+                {
+                    "name": "徐州",
+                    "arriveTime": "1:24",
+                    "startTime": "1:41"
+                },
+                {
+                    "name": "砀山",
+                    "arriveTime": "2:32",
+                    "startTime": "3:3"
+                },
+                {
+                    "name": "郑州",
+                    "arriveTime": "5:47",
+                    "startTime": "6:9"
+                },
+                {
+                    "name": "汝州",
+                    "arriveTime": "8:58",
+                    "startTime": "9:1"
+                },
+                {
+                    "name": "平顶山西",
+                    "arriveTime": "9:37",
+                    "startTime": "9:39"
+                },
+                {
+                    "name": "南召",
+                    "arriveTime": "10:33",
+                    "startTime": "10:35"
+                },
+                {
+                    "name": "南阳",
+                    "arriveTime": "11:17",
+                    "startTime": "11:20"
+                },
+                {
+                    "name": "邓州",
+                    "arriveTime": "12:5",
+                    "startTime": "12:8"
+                },
+                {
+                    "name": "襄阳",
+                    "arriveTime": "13:17",
+                    "startTime": "13:37"
+                },
+                {
+                    "name": "谷城",
+                    "arriveTime": "14:33",
+                    "startTime": "14:35"
+                },
+                {
+                    "name": "武当山",
+                    "arriveTime": "15:21",
+                    "startTime": "15:23"
+                },
+                {
+                    "name": "十堰",
+                    "arriveTime": "15:42",
+                    "startTime": "15:45"
+                },
+                {
+                    "name": "安康",
+                    "arriveTime": "18:6",
+                    "startTime": "18:18"
+                },
+                {
+                    "name": "西乡",
+                    "arriveTime": "21:31",
+                    "startTime": "21:38"
+                },
+                {
+                    "name": "汉中",
+                    "arriveTime": "23:9",
+                    "startTime": "23:12"
+                },
+                {
+                    "name": "广元",
+                    "arriveTime": "3:6",
+                    "startTime": "3:21"
+                },
+                {
+                    "name": "江油",
+                    "arriveTime": "6:9",
+                    "startTime": "6:17"
+                },
+                {
+                    "name": "绵阳",
+                    "arriveTime": "6:54",
+                    "startTime": "7:2"
+                },
+                {
+                    "name": "德阳",
+                    "arriveTime": "7:44",
+                    "startTime": "7:49"
+                },
+                {
+                    "name": "成都",
+                    "arriveTime": "8:40",
+                    "startTime": "8:40"
+                }
+            ]
+        }
+    ],
+    "once": [
+        {
+            "time": 1384,
+            "isFastest": "true",
+            "trainNumber": [
+                "G290",
+                "Z49"
+            ],
+            "stations": [
+                [
+                    {
+                        "isTransferStation": "false",
+                        "name": "青岛",
+                        "arriveTime": "9:35",
+                        "startTime": "9:35"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "青岛北",
+                        "arriveTime": "9:53",
+                        "startTime": "9:55"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "高密",
+                        "arriveTime": "10:26",
+                        "startTime": "10:27"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "潍坊",
+                        "arriveTime": "10:54",
+                        "startTime": "10:56"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "青州市",
+                        "arriveTime": "11:17",
+                        "startTime": "11:19"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "淄博",
+                        "arriveTime": "11:38",
+                        "startTime": "11:40"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "济南",
+                        "arriveTime": "12:27",
+                        "startTime": "12:32"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "泰安",
+                        "arriveTime": "12:56",
+                        "startTime": "12:58"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "枣庄",
+                        "arriveTime": "13:36",
+                        "startTime": "13:39"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "徐州东",
+                        "arriveTime": "13:57",
+                        "startTime": "14:18"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "萧县北",
+                        "arriveTime": "14:36",
+                        "startTime": "14:38"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "商丘",
+                        "arriveTime": "15:9",
+                        "startTime": "15:12"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "郑州东",
+                        "arriveTime": "16:3",
+                        "startTime": "16:6"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "漯河西",
+                        "arriveTime": "16:40",
+                        "startTime": "16:42"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "信阳东",
+                        "arriveTime": "17:20",
+                        "startTime": "17:22"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "孝感北",
+                        "arriveTime": "17:40",
+                        "startTime": "17:46"
+                    },
+                    {
+                        "isTransferStation": "true",
+                        "name": "武汉",
+                        "arriveTime": "18:18",
+                        "startTime": "18:28"
+                    }
+                ],
+                [
+                    {
+                        "isTransferStation": "true",
+                        "name": "汉口",
+                        "arriveTime": "21:55",
+                        "startTime": "22:19"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "宜昌东",
+                        "arriveTime": "0:27",
+                        "startTime": "0:37"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "恩施",
+                        "arriveTime": "2:35",
+                        "startTime": "2:41"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "重庆北",
+                        "arriveTime": "5:32",
+                        "startTime": "5:45"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "遂宁",
+                        "arriveTime": "7:10",
+                        "startTime": "7:20"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "成都",
+                        "arriveTime": "8:39",
+                        "startTime": "8:39"
+                    }
+                ]
+            ]
+        },
+        {
+            "time": 1509,
+            "isFastest": "false",
+            "trainNumber": [
+                "G260",
+                "D632"
+            ],
+            "stations": [
+                [
+                    {
+                        "isTransferStation": "false",
+                        "name": "青岛",
+                        "arriveTime": "15:19",
+                        "startTime": "15:19"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "高密",
+                        "arriveTime": "16:4",
+                        "startTime": "16:5"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "潍坊",
+                        "arriveTime": "16:32",
+                        "startTime": "16:33"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "淄博",
+                        "arriveTime": "17:9",
+                        "startTime": "17:11"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "济南",
+                        "arriveTime": "17:59",
+                        "startTime": "18:1"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "徐州东",
+                        "arriveTime": "19:11",
+                        "startTime": "19:31"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "商丘",
+                        "arriveTime": "20:16",
+                        "startTime": "20:18"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "郑州东",
+                        "arriveTime": "21:8",
+                        "startTime": "21:11"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "漯河西",
+                        "arriveTime": "21:45",
+                        "startTime": "21:47"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "信阳东",
+                        "arriveTime": "22:25",
+                        "startTime": "22:40"
+                    },
+                    {
+                        "isTransferStation": "true",
+                        "name": "武汉",
+                        "arriveTime": "23:24",
+                        "startTime": "23:24"
+                    }
+                ],
+                [
+                    {
+                        "isTransferStation": "true",
+                        "name": "武汉",
+                        "arriveTime": "6:40",
+                        "startTime": "6:40"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "汉口",
+                        "arriveTime": "7:0",
+                        "startTime": "7:11"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "荆州",
+                        "arriveTime": "8:23",
+                        "startTime": "8:25"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "枝江北",
+                        "arriveTime": "8:43",
+                        "startTime": "8:45"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "宜昌东",
+                        "arriveTime": "9:4",
+                        "startTime": "9:10"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "建始",
+                        "arriveTime": "10:35",
+                        "startTime": "10:37"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "恩施",
+                        "arriveTime": "11:0",
+                        "startTime": "11:10"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "利川",
+                        "arriveTime": "11:45",
+                        "startTime": "11:49"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "丰都",
+                        "arriveTime": "12:45",
+                        "startTime": "12:47"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "涪陵北",
+                        "arriveTime": "13:6",
+                        "startTime": "13:8"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "重庆北",
+                        "arriveTime": "13:46",
+                        "startTime": "14:6"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "潼南",
+                        "arriveTime": "14:51",
+                        "startTime": "14:53"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "遂宁",
+                        "arriveTime": "15:23",
+                        "startTime": "15:25"
+                    },
+                    {
+                        "isTransferStation": "false",
+                        "name": "成都",
+                        "arriveTime": "16:28",
+                        "startTime": "16:28"
+                    }
+                ]
+            ]
+        }
+    ]
+}

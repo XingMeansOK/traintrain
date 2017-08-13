@@ -11,14 +11,22 @@ import  {
   Image
  } from 'react-native';
  import {
-   fletter,
+   FLETTER,
    itemheight,
    sectionsperatorheight,
    itemsperatorheight,
    getWidthPercent,
    getHeightPercent,
    screenwidth,
-   screenheights
+   screenheights,
+   BORDERCOLOR,
+   ICONCOLOR,
+   BTNCOLOR,
+   INPUTCOLOR,
+   BACKGRDCOLOR,
+   GRAY,
+   ITEMSPRTCOLOR,
+   SECSPRTCOLOR
  } from './constant';
 import {inject, observer} from 'mobx-react';
 import { autorun } from 'mobx';
@@ -32,15 +40,37 @@ export default class StationList extends Component{
   }
 
   componentDidMount() {
-    const disposer = autorun(() => {
-      let sectionIndex = this.props.store.sectionListIndex<0?0:this.props.store.sectionListIndex;
-      let itemIndex = sectionIndex<1?-1:-2.5;
+    // const disposersta = autorun(() => {
+    //   let sectionIndexSta = this.props.store.sectionListIndexSta.seci<0?0:this.props.store.sectionListIndexSta.seci;
+    //   let itemIndexSta = this.props.store.sectionListIndexSta.iti-1;
+    //   this.sectionListRef.scrollToLocation({
+    //     itemIndex:itemIndexSta,
+    //     sectionIndex:sectionIndexSta,
+    //     viewPosition:0,
+    //     animated: false
+    //   });
+    // })
+
+    const disposersta = autorun(() => {
+      let sectionIndexSta = this.props.store.sectionListIndexSta.sectionindex<0?0:this.props.store.sectionListIndexSta.sectionindex;
+      let itemIndexSta = this.props.store.sectionListIndexSta.itemindex-1;
       this.sectionListRef.scrollToLocation({
-        itemIndex:itemIndex,
-        // itemIndex:index.itemindex-2.5,
-        sectionIndex:sectionIndex,
+        itemIndex:itemIndexSta,
+        sectionIndex:sectionIndexSta,
         viewPosition:0,
-        animated: true
+        animated: false
+      });
+    })
+    const disposerdes = autorun(() => {
+      let sectionIndexDes = this.props.store.sectionListIndexDes.sectionindex<0?0:this.props.store.sectionListIndexDes.sectionindex;
+      let itemIndexDes = this.props.store.sectionListIndexDes.sectionindex<1 ?
+        this.props.store.sectionListIndexDes.itemindex-1
+        : this.props.store.sectionListIndexDes.itemindex-1;
+      this.sectionListRef.scrollToLocation({
+        itemIndex:itemIndexDes,
+        sectionIndex:sectionIndexDes,
+        viewPosition:0,
+        animated: false
       });
     })
   }
@@ -48,27 +78,32 @@ export default class StationList extends Component{
   getStationsData(){
       var sourcedata=require('../store/station.json');
       var traindata=sourcedata.trainData;
-      var  key = [],
+      var  sections=[],
+           key = [],
            data=[],
-           sections=[];
+           stationpinyin=[],
+           stationshort=[];
       for (let i in traindata){
         if(key.indexOf(traindata[i].title)==-1){
           key.push(traindata[i].title);
           data.push(traindata[i].name);
         }
       }
-      for (let k in key){
-        sections[k]={key:key[k],data:data[k]};
-      }
-      var stationpinyin=[];
+      for (let k in key){sections[k]={key:key[k],data:data[k]};}
+      sections.push({key:'#',data:[" "," "," "," ", " "," "," "," "," "," "," "," "]});
       for (let x in data){
         stationpinyin[x]=[];
+        stationshort[x]=[];
         for (let y in data[x]){
           stationpinyin[x][y]=pinyin.getFullChars(data[x][y]);
+          stationshort[x][y]=stationpinyin[x][y].match(/[A-Z]+/g).join('');
         }}
       for (let z in key){
-        this.props.store.stations[z]={title:key[z],station:{name:data[z],pinyin:stationpinyin[z]}};
+        this.props.store.stations[z]={
+          title:key[z],
+          station:{name:data[z],pinyin:stationpinyin[z],short:stationshort[z]}};
       }
+      this.props.store.allstations=data.reduce(function(a,b){return a.concat(b)});
       return sections;
   }
 
@@ -87,9 +122,10 @@ export default class StationList extends Component{
   }
 
   scrollToLetter(firstletter){
-    var sectionindex=fletter.indexOf(firstletter);
+    var sectionindex=FLETTER.indexOf(firstletter);
+    var itemindex=sectionindex<1? -1:-2.5
     this.sectionListRef.scrollToLocation({
-      itemIndex:-2.5,
+      itemIndex:itemindex,
       viewPosition:0,
       sectionIndex:sectionindex,
       animated: true
@@ -120,24 +156,22 @@ export default class StationList extends Component{
         <View style={styles.listcontainer}>
             <SectionList
               keyboardShouldPersistTaps="always"
-
               ref={sectionList => this.sectionListRef=sectionList}
               sections={this.getStationsData()}
               renderItem={({item}) => this.renderStation(item)}
               renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.key}</Text>}
               stickySectionHeadersEnabled={true}
               ItemSeparatorComponent={({item}) => <View style={styles.itemsperator}>{item}</View>}
-
               getItemLayout={(data,index) => (
                 {length:(itemheight+itemsperatorheight),offset:(itemheight+itemsperatorheight)*index,index}
-                // {length:46,offset:46*index,index}
               )}
             />
-              <ScrollView
-                centerContent={true}
-              >
-                {fletter.map((letter,index) => this.renderFirstLetter(letter,index))}
-              </ScrollView>
+            <ScrollView
+
+              centerContent={true}
+            >
+              {FLETTER.map((letter,index) => this.renderFirstLetter(letter,index))}
+            </ScrollView>
           </View>
       );
     }
@@ -160,22 +194,16 @@ export default class StationList extends Component{
     //  paddingTop: 2,
      flexDirection: 'row',
      justifyContent: 'center',
-     backgroundColor: 'white',
+     backgroundColor: '#fff',
+     marginTop:1
     },
-    // container2: {
-    //  flex: 1,
-    //  flexDirection: 'row',
-    //  backgroundColor: '#f90',
-    //  justifyContent: 'space-between',
-    // },
     sectionHeader: {
-      // paddingTop: 2,
       paddingLeft: 10,
       paddingRight: 10,
       paddingBottom: 2,
       fontSize: 14,
       fontWeight: 'bold',
-      backgroundColor: 'rgba(240,240,240,1.0)',
+      backgroundColor: SECSPRTCOLOR,
     },
     item: {
       padding: 10,
@@ -184,27 +212,22 @@ export default class StationList extends Component{
       width:getWidthPercent(94),
     },
     sectionsperator:{
-      backgroundColor:'rgba(235,235,235,1.0)',
+      backgroundColor:SECSPRTCOLOR,
       height:sectionsperatorheight,
     },
     itemsperator:{
-      backgroundColor:'rgba(247,247,247,1.0)',
+      backgroundColor:ITEMSPRTCOLOR,
       height:itemsperatorheight,
     },
     firstletter:{
       fontSize:14,
       paddingLeft: getWidthPercent(3),
       paddingTop: 1,
-      // paddingRight: 1,
-      // paddingLeft: 1,
-      // paddingBottom: 1,
-      // justifyContent: 'space-between'
+            flex:1
     },
     scrollletter:{
       width:20,
       alignItems: 'center',
-      justifyContent: 'flex-end',
-
-
+      justifyContent: 'flex-start',
     }
   })

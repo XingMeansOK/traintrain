@@ -4,6 +4,10 @@
         "source": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.46.4\\res\\xml\\preferences.xml"
     },
     {
+        "merged": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
+        "source": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.46.4\\res\\xml\\preferences.xml"
+    },
+    {
         "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
         "source": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.46.4\\res\\xml\\preferences.xml"
     }

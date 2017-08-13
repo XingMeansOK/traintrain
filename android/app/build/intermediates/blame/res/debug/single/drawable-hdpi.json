@@ -96,6 +96,10 @@
         "source": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-hdpi\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
+        "merged": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\node_modules_reactnavigation_src_views_assets_backicon.png",
+        "source": "E:\\js\\traintrain\\android\\app\\src\\main\\res\\drawable-hdpi\\node_modules_reactnavigation_src_views_assets_backicon.png"
+    },
+    {
         "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\abc_ab_share_pack_mtrl_alpha.9.png",
         "source": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-hdpi\\abc_ab_share_pack_mtrl_alpha.9.png"
     },

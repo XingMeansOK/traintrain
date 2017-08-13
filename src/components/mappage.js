@@ -36,7 +36,7 @@ export default class Mappage extends Component {
 
     return (
       <CoordinatorLayout style={styles.container}>
-        <StatusBar translucent backgroundColor='#205cb2' />
+        <StatusBar translucent backgroundColor='#205cb2'/>
         <ScrollingAppBarLayout
           translucent
           style={styles.scrollAppBar}

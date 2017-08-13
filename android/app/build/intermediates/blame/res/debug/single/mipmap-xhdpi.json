@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
+        "source": "E:\\js\\traintrain\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
         "merged": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
         "source": "D:\\workspace\\traintrain\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
