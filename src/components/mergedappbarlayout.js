@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {
   StyleSheet,
+  Alert
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -41,7 +42,7 @@ export default class MergedAppBarLayoutWrapper extends Component {
       default:
     }
   }
-
+  // body: `start=${this.props.store.start}&destination=${this.props.store.destination}&t1=${40}&t2=${120}`
   async sendRequest() {
     let request = new Request(URL, {
       method: "POST",
@@ -49,21 +50,12 @@ export default class MergedAppBarLayoutWrapper extends Component {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      body: `start=${this.props.store.start}&destination=${this.props.store.destination}`
+      body: `start=${'抚顺北'}&destination=${'武汉'}&t1=${40}&t2=${120}`
     });
     try {
       let response = await fetch(request);
       if(response.ok){
           let responseJson = await response.json();
-          var index = 0
-          // 存入store前先对数据进行预处理
-          CLASSIFYTYPES.forEach( TYPE => {
-            // 每种分类下都是一个数组(元素是每一个方案)，便利数组，为每种方案添加一个是否选中的属性以及方案的编号属性
-            responseJson[TYPE].forEach( plan => {
-              plan.selected = false;
-              plan.index = index++;
-            });
-          })
           this.props.store.planInfo = responseJson;
       }else{
           Alert.alert('提示','请求失败',[{text: '确定', onPress: () => console.log('OK Pressed!')},]);

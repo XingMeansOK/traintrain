@@ -70,14 +70,6 @@ class AppStore {
     return this.selectedPlans.length<MAXSELECTEDPLAN;
   }
 
-  @computed get viewPagerDataSource() {
-    // 设置数据源
-    let dataSource = new ViewPager.DataSource({
-      pageHasChanged: (p1, p2) => p1 !== p2,
-    });
-    dataSource.cloneWithPages(this.planInfo2);
-    return dataSource
-  }
   @computed get sectionListIndexSta() {
       var startpinyin=pinyin.getFullChars(this.start).toUpperCase();
       let startletterfst=startpinyin.substr(0,1)||'A';
