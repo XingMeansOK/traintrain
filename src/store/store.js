@@ -15,22 +15,7 @@ class AppStore {
   @observable start = ''; // 用于存放用户输入的始发站
   @observable destination = ''; // 用于存放用户输入的终点站
   @observable selectedPlans = []; // 要在第一页展示的方案
-  /*
-  {
-    "分类一": [
-      {方案内容},
-      {方案内容}
-    ],
-    "分类二": [
-      {方案内容},
-      {方案内容}
-     ],
-    "分类三": [
-      {方案内容},
-      {方案内容}
-     ],
-  }
-  */
+  @observable currentRenderIndex = 0; // 当前渲染的方案
   /*
    planInfo， 推荐的乘车方案对象，
    多个成员，代表推荐的类型（时间最短，换乘最少这种），每个成员都是一个数组，数组元素是具体的一种乘车方案
@@ -54,6 +39,15 @@ class AppStore {
   */
   @computed get cabinet() {
     return this.selectedPlans.length<1? ['还没有选择方案']: this.selectedPlans.map(plan => plan);
+  }
+  /*
+    将要在地图上渲染的方案
+  */
+  @computed get plan2Render() {
+    if(this.selectedPlans.length>0) {
+      return this.selectedPlans[this.currentRenderIndex];
+    }
+    return null
   }
 
   @computed get sectionListIndex() {

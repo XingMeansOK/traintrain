@@ -17,7 +17,6 @@ import {
   HEADERCOLOR,
   MAPPAGE
 } from './constant';
-import DropdownAlert from 'react-native-dropdownalert';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 @inject("store") @observer
@@ -30,7 +29,6 @@ export default class Inputpage extends Component {
   }
   static navigationOptions = {
     tabBarVisible: false
-
   };
 
   render() {
@@ -38,8 +36,7 @@ export default class Inputpage extends Component {
     const store = this.store;
     return (
       <View style={styles.container}>
-
-        <StatusBar backgroundColor= {HEADERCOLOR} />
+        <StatusBar  backgroundColor= {HEADERCOLOR} />
         <View style={styles.headercont} >
           <Icon
             style={styles.backbutton}
@@ -53,22 +50,10 @@ export default class Inputpage extends Component {
             style={{paddingRight:10,color:HEADERCOLOR}}
             name="ios-arrow-back"
             size={30}
-
           />
         </View>
         <StationInput />
         <StationList />
-        <DropdownAlert
-          ref={ref => {this.props.store.alertRef = ref}}
-          containerStyle={{
-          backgroundColor:"#fff",
-          }}
-          startDelta={0}
-          endDelta={0}
-          showCancel={true}
-          inactiveStatusBarBackgroundColor={HEADERCOLOR}
-          // activeStatusBarBackgroundColor='red'
-         />
       </View>
     );
   }
@@ -76,7 +61,7 @@ export default class Inputpage extends Component {
 
 const styles=StyleSheet.create({
   container:{
-    // marginTop:24,
+    marginTop:24,
     flexDirection: 'column',
     flex:1
   },

@@ -13,7 +13,7 @@ import {
   CoordinatorLayout,
   FloatingActionButton,
 } from 'react-native-bottom-sheet-behavior';
-// import SMap from './map';
+import SMap from './map';
 import BottomSheetBehaviorWrapper from './bottomsheetbehavior';
 import MergedAppBarLayoutWrapper from './mergedappbarlayout';
 import {inject, observer} from 'mobx-react';
@@ -38,7 +38,7 @@ export default class Mappage extends Component {
 
     return (
       <CoordinatorLayout style={styles.container}>
-        <StatusBar backgroundColor='#205cb2'/>
+        <StatusBar translucent backgroundColor='#205cb2'/>
         <ScrollingAppBarLayout
           translucent
           style={styles.scrollAppBar}
@@ -51,6 +51,7 @@ export default class Mappage extends Component {
             onIconClicked={() => this.props.store.navigate(INPUTPAGE)}
             />
         </ScrollingAppBarLayout>
+        <SMap/>
         <BottomSheetBehaviorWrapper/>
         <MergedAppBarLayoutWrapper/>
       </CoordinatorLayout>
@@ -60,7 +61,7 @@ export default class Mappage extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     backgroundColor: '#fff',
   },
   scrollAppBar: {

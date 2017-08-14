@@ -13,6 +13,7 @@ import  {
   Alert
  } from 'react-native';
  import {
+   URL,
    FLETTER,
    itemheight,
    sectionsperatorheight,
@@ -48,39 +49,63 @@ export default class StationInput extends Component{
     super(props);
     this.store = this.props.store;
     this.state={
-
       collapsed: true,
     };
   }
 
-  exchange(){
+  exchange = () => {
     let start=this.props.store.start;
     let destination=this.props.store.destination;
     this.props.store.destination=start;
     this.props.store.start=destination;
   }
 
-  inputcheck(){
+  inputcheck = () => {
     if(this.props.store.start==''){
-      // this.props.store.alertRef.alertWithType('error', '错误', '请输入起点！');
       Alert.alert('提示','请输入起点!')
     }
     else if (this.props.store.allstations.indexOf(this.props.store.start)==-1) {
-      this.props.store.alertRef.alertWithType('error', '错误', '请车站不存在！');
+      Alert.alert('提示','请车站不存在！')
     }
     else if(this.props.store.destination==''){
-      this.props.store.alertRef.alertWithType('error', '错误', '请输入终点！');
+      Alert.alert('提示','请输入终点！')
     }
     else if (this.props.store.allstations.indexOf(this.props.store.destination)==-1) {
-      this.props.store.alertRef.alertWithType('error', '错误', '车站不存在！');
+      Alert.alert('提示','车站不存在！')
     }
     else if(this.props.store.start===this.props.store.destination){
-      this.props.store.alertRef.alertWithType('error', '错误', '起点与终点不同为统一车站！');
+      Alert.alert('提示','起点与终点不同为统一车站！')
     }
 
     else{
-      return this.props.store.navigate(RESULTPAGE);
+      this.sendRequest();
     }
+  }
+
+  async sendRequest() {
+    let request = new Request(URL, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        'Cache-Control': 'no-cache'
+      },
+      body: `start=${this.props.store.start}&destination=${this.props.store.destination}&t1=${this.props.store.timeinstation}&t2=${this.props.store.timeincity}`
+    });
+    try {
+      let response = await fetch(request);
+      if(response.ok){
+          let responseJson = await response.json();
+          this.props.store.planInfo = responseJson;
+          this.props.store.navigate(RESULTPAGE);
+      }else{
+          Alert.alert('提示','请求失败',[{text: '确定', onPress: () => console.log('OK Pressed!')},]);
+      }
+
+    } catch(error) {
+      console.error(error);
+    }
+
   }
 
   render(){
@@ -136,12 +161,9 @@ export default class StationInput extends Component{
           <View style={styles.searchbuttoncont}>
             <TouchableHighlight
               style={styles.searchbutton}
-              onPress={
-                () =>{this.inputcheck()}}
+              onPress={this.inputcheck}
             >
-              <Text
-                style={styles.searchtext}
-              >搜路线</Text>
+              <Text style={styles.searchtext}>搜路线</Text>
             </TouchableHighlight>
           </View>
         </View>

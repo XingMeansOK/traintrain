@@ -42,7 +42,7 @@ export default class MergedAppBarLayoutWrapper extends Component {
       default:
     }
   }
-  // body: `start=${this.props.store.start}&destination=${this.props.store.destination}&t1=${40}&t2=${120}`
+
   async sendRequest() {
     let request = new Request(URL, {
       method: "POST",
@@ -50,7 +50,7 @@ export default class MergedAppBarLayoutWrapper extends Component {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      body: `start=${'抚顺北'}&destination=${'武汉'}&t1=${40}&t2=${120}`
+      body: `start=${this.props.store.start}&destination=${this.props.store.destination}&t1=${this.props.store.timeinstation}&t2=${this.props.store.timeincity}`
     });
     try {
       let response = await fetch(request);

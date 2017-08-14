@@ -22,8 +22,8 @@ export default class BottomSheetBehaviorWrapper extends Component {
     return (
       <BottomSheetBehavior
         anchorEnabled
-        peekHeight={PEEKHEIGHT-20}
-        // peekHeight={PEEKHEIGHT}
+        // peekHeight={PEEKHEIGHT-20}
+        peekHeight={PEEKHEIGHT}
 
         // anchorPoint={ANCHORPOINT}
 

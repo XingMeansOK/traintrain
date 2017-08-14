@@ -40,48 +40,52 @@ export default class BottomSheet extends Component {
       collapsedtransf2: true,
     }
   }
-  /*
-    渲染viewpager每一页的方法
-  */
-  arriveDay(){
-    var timeleft=parseInt(once[0].time-(1440-(parseInt(once[0].stations[0][0].startTime.split(":")[0])*60+parseInt(once[0].stations[0][0].startTime.split(":")[1]))
+
+  arriveDay(planInfo){
+    var timeleft=parseInt(planInfo.time-(1440-(parseInt(planInfo.stations[0][0].startTime.split(":")[0])*60+parseInt(planInfo.stations[0][0].startTime.split(":")[1]))
                  ));
     var arrive='';
     if(timeleft<0){
-      arrive=once[0].stations[1][once[0].stations[1].length-1].arriveTime;
+      arrive=planInfo.stations[1][planInfo.stations[1].length-1].arriveTime;
     }else{
       switch(parseInt(timeleft/1440)){
-        case 0: arrive='次日'+once[0].stations[1][once[0].stations[1].length-1].arriveTime;break;
-        case 1: arrive='第三天'+once[0].stations[1][once[0].stations[1].length-1].arriveTime;break;
-        case 2: arrive='第四天'+once[0].stations[1][once[0].stations[1].length-1].arriveTime;break;
+        case 0: arrive='次日'+planInfo.stations[1][planInfo.stations[1].length-1].arriveTime;break;
+        case 1: arrive='第三天'+planInfo.stations[1][planInfo.stations[1].length-1].arriveTime;break;
+        case 2: arrive='第四天'+planInfo.stations[1][planInfo.stations[1].length-1].arriveTime;break;
         default:arrive='a longlong';break;
       }
     }
     return (arrive);
   }
-
-  renderViewPagerPage = (data) => {
-    // const content = typeof data == "string"? data: data.index;
-    // return(
-    //   <View style={styles.page}>
-    //     <Text>{content}</Text>
-    //   </View>)
+  /*
+    渲染viewpager每一页的方法
+  */
+  renderViewPagerPage = (planInfo) => {
+    if( typeof planInfo == 'string' ) {
+      return(
+        <View style={styles.page}>
+          <Text>{planInfo}</Text>
+        </View>)
+    }
+    let stationLine = '';
+    let count = 0; //总车站个数
+    planInfo.stations.forEach(train => {
+      stationLine+=` ${train[0].name}→${train[train.length-1].name} `;
+      count+=train.length;
+    })
 
     return(
       <View style={styles.page}>
-        <Text>{once[0].trainNumber.join('→')}</Text>
-        <Text>{once[0].stations[0][0].name+'→'+once[0].stations[0][(once[0].stations[0]).length-1].name+'→'+once[0].stations[1][(once[0].stations[1]).length-1].name}
+        <Text>{typeof planInfo.trainNumber == 'string'? planInfo.trainNumber: planInfo.trainNumber.join('→')}</Text>
+        <Text>{stationLine}</Text>
+        <Text>
+          {parseInt(planInfo.time/60)}小时{parseInt(planInfo.time%60)}分钟
         </Text>
         <Text>
-          {parseInt(once[0].time/60)}小时{parseInt(once[0].time%60)}分钟
+          {planInfo.stations[0][0].startTime+'至'}
         </Text>
         <Text>
-          {
-            once[0].stations[0][0].startTime+'至'+this.arriveDay()
-          }
-        </Text>
-        <Text>
-          {once[0].stations[0].length+once[0].stations[1].length-1}站
+          {`共${count}站`}
         </Text>
       </View>)
 
@@ -337,7 +341,7 @@ export default class BottomSheet extends Component {
             ref={(viewpager) => {this.viewpager = viewpager}}
             dataSource={this.dataSource.cloneWithPages(this.props.store.cabinet)}
             renderPage={this.renderViewPagerPage}
-            onChangePage={(page) => {this.setState({currentPage:page})}}
+            onChangePage={(page) => {this.props.store.currentRenderIndex = page}}
           />
           <View style={styles.bottomSheetContent}>
             <ScrollView

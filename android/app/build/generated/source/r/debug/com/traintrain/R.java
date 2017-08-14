@@ -2737,7 +2737,8 @@ containing a value of this type.
         public static final int node_modules_imobile_for_reactnative_nativemodule_resource_destpoint=0x7f020066;
         public static final int node_modules_imobile_for_reactnative_nativemodule_resource_startpoint=0x7f020067;
         public static final int node_modules_reactnavigation_src_views_assets_backicon=0x7f020068;
-        public static final int notification_template_icon_bg=0x7f020069;
+        public static final int notification_template_icon_bg=0x7f02006a;
+        public static final int src_img_thumb=0x7f020069;
     }
     public static final class id {
         public static final int action0=0x7f0d007f;
