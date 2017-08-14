@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   BottomSheetBehavior
 } from 'react-native-bottom-sheet-behavior';
-import {Dimensions} from 'react-native';
+import {Dimensions,View} from 'react-native';
 import {inject, observer} from 'mobx-react';
 import BottomSheet from './bottomsheet';
 import { ANCHORPOINT, PEEKHEIGHT } from './constant';
@@ -12,7 +12,7 @@ const { height } = Dimensions.get('window');
 export default class BottomSheetBehaviorWrapper extends Component {
   // handleSlide(e) {
   //   this.offset = e.nativeEvent.offset
-  // }
+  // }BottomSheetHeader
 
   // handleBottomSheetChange(e) {
   //   this.lastState = e.nativeEvent.state
@@ -20,6 +20,7 @@ export default class BottomSheetBehaviorWrapper extends Component {
   render() {
 
     return (
+
       <BottomSheetBehavior
         anchorEnabled
         // peekHeight={PEEKHEIGHT-20}
@@ -33,8 +34,11 @@ export default class BottomSheetBehaviorWrapper extends Component {
         onSlide={this.handleSlide}
         onStateChange={this.handleBottomSheetChange}
       >
+
         <BottomSheet/>
+
       </BottomSheetBehavior>
+
     )
   }
 }
