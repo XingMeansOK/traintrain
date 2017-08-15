@@ -32,16 +32,16 @@
         "source": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-mdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
-        "merged": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_btn_rating_star_off_mtrl_alpha.png",
-        "source": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-mdpi\\abc_btn_rating_star_off_mtrl_alpha.png"
+        "merged": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_56.png",
+        "source": "E:\\js\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_56.png"
     },
     {
         "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_1001.png",
         "source": "E:\\workspace\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_1001.png"
     },
     {
-        "merged": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_56.png",
-        "source": "E:\\js\\traintrain\\android\\app\\src\\main\\res\\drawable-mdpi\\node_modules_imobile_for_reactnative_nativemodule_plotimage_56.png"
+        "merged": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_btn_rating_star_off_mtrl_alpha.png",
+        "source": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-mdpi\\abc_btn_rating_star_off_mtrl_alpha.png"
     },
     {
         "merged": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\abc_cab_background_top_mtrl_alpha.9.png",

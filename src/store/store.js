@@ -50,6 +50,48 @@ class AppStore {
     }
     return null
   }
+  /*
+  为bottomsheetcontent提供数据源
+  */
+  @computed get expandedInfo() {
+    if(this.selectedPlans.length>0) {
+      var allStations = null;
+      let plan = this.selectedPlans[this.currentRenderIndex];
+      if(typeof plan.trainNumber == 'string') {
+        allStations = [...plan.stations[0]];
+        allStations[0].additional = `${plan.trainNumber}上车`;
+        allStations[allStations.length-1].additional = `${plan.trainNumber}下车`;
+      }
+      if(plan.trainNumber.length == 2) {
+        allStations = [...plan.stations[0], ...plan.stations[1]];
+        allStations[0].additional = `${plan.trainNumber[0]}上车`;
+        allStations[plan.stations[0].length-1].additional = `${plan.trainNumber[0]}下车`;
+        allStations[plan.stations[0].length].additional = `${plan.trainNumber[1]}上车`;
+        allStations[allStations.length-1].additional = `${plan.trainNumber[1]}下车`;
+      }
+      if(plan.trainNumber.length == 3) {
+        allStations = [...plan.stations[0], ...plan.stations[1], ...plan.stations[2]];
+        allStations[0].additional = `${plan.trainNumber[0]}上车`;
+        allStations[plan.stations[0].length-1].additional = `${plan.trainNumber[0]}下车`;
+        allStations[plan.stations[0].length].additional = `${plan.trainNumber[1]}上车`;
+        allStations[plan.stations[0].length+plan.stations[1].length-1].additional = `${plan.trainNumber[1]}下车`;
+        allStations[plan.stations[0].length+plan.stations[1].length].additional = `${plan.trainNumber[2]}上车`;
+        allStations[allStations.length-1].additional = `${plan.trainNumber[2]}下车`;
+      }
+
+      var mainStations = [];
+      var mainStationIndex = [];
+      allStations.forEach((station, index) => {
+        if(station.hasOwnProperty('additional')) {
+          mainStations.push(station.name);
+          mainStationIndex.push(index);
+        }
+      })
+
+      return {allStations, mainStations, mainStationIndex};
+    }
+    return null;
+  }
 
   @computed get sectionListIndex() {
     let startpinyin=pinyin.getFullChars(this.start);

@@ -19,6 +19,7 @@
     "react-native-collapsible": "^0.9.0",
     "react-native-loading-w": "^1.0.0",
     "react-native-slider": "^0.11.0",
+    "react-native-step-indicator": "0.0.6",
     "react-native-vector-icons": "^4.3.0",
     "react-native-viewpager": "^0.2.13",
     "react-navigation": "^1.0.0-beta.11"

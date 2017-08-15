@@ -100,7 +100,7 @@ export default class PlanCard extends Component {
     var transInCity = 0; // 市内换乘次数
     if(needTransfer) {
       this.planInfo.stations[0][this.planInfo.stations[0].length-1].name == this.planInfo.stations[1][0].name? transInSameStation++: transInCity++;
-      if(this.planInfo.trainNumber.lenght == 3) {
+      if(this.planInfo.trainNumber.length == 3) {
         this.planInfo.stations[1][this.planInfo.stations[1].length-1].name == this.planInfo.stations[2][0].name? transInSameStation++: transInCity++;
       }
     }

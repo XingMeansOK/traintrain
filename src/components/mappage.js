@@ -13,7 +13,7 @@ import {
   CoordinatorLayout,
   FloatingActionButton,
 } from 'react-native-bottom-sheet-behavior';
-// import SMap from './map';
+import SMap from './map';
 import BottomSheetBehaviorWrapper from './bottomsheetbehavior';
 import MergedAppBarLayoutWrapper from './mergedappbarlayout';
 import {inject, observer} from 'mobx-react';
@@ -47,12 +47,11 @@ export default class Mappage extends Component {
             navIconName={'md-search'}
             style={styles.toolbar}
             titleColor="#fff"
-            title="休坡卖坡"
+            title={this.props.store.start.length&&this.props.store.destination.length? `${this.props.store.start} 至 ${this.props.store.destination}`:'请选择乘降站'}
             onIconClicked={() => this.props.store.navigate(INPUTPAGE)}
             />
         </ScrollingAppBarLayout>
-
-
+        <SMap/>
         <BottomSheetBehaviorWrapper/>
         <MergedAppBarLayoutWrapper/>
       </CoordinatorLayout>

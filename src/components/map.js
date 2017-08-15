@@ -115,19 +115,25 @@ export default class SMap extends Component {
       const data = this.props.store.plan2Render;
       if(data) {
         var arr = [];
+        var transArr = [];//为了处理不知道什么原因不能正确显示换乘图标， 下策啊。。
+        var transIndex = 0;
         const stations = data.stations;
 
         stations.forEach((train, trainIndex) => {
           train.forEach((station, stationIndex) => {
+            let isHeadOrTail = (stationIndex == (train.length-1) || stationIndex ==0);
+            if(isHeadOrTail&&station.isTransferStation) {
+              transArr.push(transIndex);//记住换乘站在arr中的索引
+            }
             let mercator = this.latLng2WebMercator(station.y,station.x);
-            arr.push({uri:this.point,isTransfer:station.isTransferStation,mapX:mercator[0],mapY:mercator[1]});
-
+            arr.push({uri:this.point,mapX:mercator[0],mapY:mercator[1]});
+            transIndex++;
 
           })
         })
+        transArr.forEach(index => {arr[index].uri = this.transferpoint});
         arr[0].uri = this.startpoint;
         arr[arr.length - 1].uri = this.destpoint;
-        arr.forEach(tip => {if(tip.isTransfer) {tip.uri = this.transferpoint}});
         this.refs['mapView'].setState({
             callouts:arr,
         });

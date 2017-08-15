@@ -11,7 +11,7 @@ import {
   BottomSheetBehavior
 } from 'react-native-bottom-sheet-behavior';
 import {inject, observer} from 'mobx-react';
-import { RESULTPAGE, INPUTPAGE, URL, CLASSIFYTYPES } from './constant';
+import { RESULTPAGE, INPUTPAGE, URL, CLASSIFYTYPES,BLUESTYLECOLOR } from './constant';
 
 @inject("store") @observer
 export default class MergedAppBarLayoutWrapper extends Component {
@@ -79,12 +79,12 @@ export default class MergedAppBarLayoutWrapper extends Component {
             navIconName='md-arrow-round-down'
             overflowIconName='md-more'
             title='方案'
-            titleColor="#fff"
+            titleColor={BLUESTYLECOLOR}
             style={{elevation: 6}}
             actions={[
               {title: 'Search', show: 'always', iconName: 'md-search'},
               {title: '重新选'},
-              {title: '测试用发送请求'}
+              // {title: '测试用发送请求'}
             ]}
             onActionSelected={this.handleActions}
             onIconClicked={this.bottomSheetCollapsed}>

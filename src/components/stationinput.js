@@ -100,6 +100,7 @@ export default class StationInput extends Component{
       let response = await fetch(request);
       this.props.store.loadingRef.dismiss();
       if(response.ok){
+        this.props.store.planInfo = null;
           let responseJson = await response.json();
           this.props.store.planInfo = responseJson;
           this.props.store.navigate(RESULTPAGE);
@@ -124,7 +125,7 @@ export default class StationInput extends Component{
             style={styles.exchangebutton}
             name="md-repeat"
             size={30}
-            onPress={()=>{this.exchange()}}
+            onPress={this.exchange}
           />
           <View style={styles.inputcontainer}>
             <View style={styles.tipinputcontainer}>
