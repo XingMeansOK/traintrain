@@ -21,7 +21,7 @@ export var getHeightPercent = (percentage) => ((screenheight-24) * percentage) /
 //   return((screenwidth * percentage) / 100);
 // }
 
-
+export const WELCOMEPAGE = 'Welcomepage';
 export const MAPPAGE = 'Mappage';
 export const INPUTPAGE = 'Inputpage';
 export const RESULTPAGE = 'Resultpage';

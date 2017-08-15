@@ -18,6 +18,7 @@ import {
   MAPPAGE
 } from './constant';
 import Icon from 'react-native-vector-icons/Ionicons';
+ import Loading from 'react-native-loading-w';
 
 @inject("store") @observer
 export default class Inputpage extends Component {
@@ -54,6 +55,10 @@ export default class Inputpage extends Component {
         </View>
         <StationInput />
         <StationList />
+        <Loading
+        ref={ref => this.props.store.loadingRef =ref}
+        text={'搜索中'}
+        />
       </View>
     );
   }

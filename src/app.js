@@ -5,7 +5,8 @@ import { Provider } from 'mobx-react';
 import Mappage from './components/mappage';
 import Inputpage from './components/inputpage';
 import Resultpage from './components/resultpage';
-import {MAPPAGE, INPUTPAGE, RESULTPAGE} from './components/constant';
+import Welcomepage from './components/welcomepage';
+import {WELCOMEPAGE,MAPPAGE, INPUTPAGE, RESULTPAGE} from './components/constant';
 import {appStore} from './store/store';// 用于保存app所有的状态和数据（mobx的observable）
 // // const是es6中用于定义常量的关键字
 
@@ -17,6 +18,7 @@ import {appStore} from './store/store';// 用于保存app所有的状态和数�
   pages[MAPPAGE] = { screen: Mappage };就相当于pages.Mappage = { screen: Mappage };
 */
 let pages = {}; // 创建一个空的对象，let是es6中定义变量的关键字，具有块级作用域
+// pages[WELCOMEPAGE] = {screen:Welcomepage};
 pages[MAPPAGE] = { screen: Mappage };
 pages[INPUTPAGE] = { screen: Inputpage };
 pages[RESULTPAGE] = { screen: Resultpage };

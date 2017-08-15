@@ -539,7 +539,15 @@ export default class BottomSheet extends Component {
 
       <View style={styles.bottomSheet}>
         <View style={styles.bottomSheetHeader}>
-          <Text style={styles.label}>可以划</Text>
+
+          <Icon
+            name='md-remove'
+            color='#fff'
+            size={55}
+            style={{elevation:8,opacity:0.4}}
+
+          />
+
         </View>
         <View style={{flexDirection: 'column'}}>
           <ViewPager
@@ -687,10 +695,12 @@ const styles = StyleSheet.create({
   },
   bottomSheetHeader: {
     backgroundColor: BLUESTYLECOLOR,
-    padding: 28,
+    // padding: 20,
+    // marginBottom:20,
+    height:PEEKHEIGHT,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
   },
   page: {
     height:ANCHORPOINT-PEEKHEIGHT-100,

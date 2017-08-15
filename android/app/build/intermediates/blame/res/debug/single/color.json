@@ -1,11 +1,11 @@
 [
     {
-        "merged": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
-        "source": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\color\\abc_secondary_text_material_dark.xml"
-    },
-    {
         "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
         "source": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
+        "source": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\color\\abc_secondary_text_material_dark.xml"
     },
     {
         "merged": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_track.xml",
@@ -28,12 +28,12 @@
         "source": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\color\\abc_tint_switch_track.xml"
     },
     {
-        "merged": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",
-        "source": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\color\\abc_tint_edittext.xml"
-    },
-    {
         "merged": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_default.xml",
         "source": "E:\\workspace\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\color\\abc_tint_default.xml"
+    },
+    {
+        "merged": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",
+        "source": "E:\\js\\traintrain\\android\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.1\\res\\color\\abc_tint_edittext.xml"
     },
     {
         "merged": "D:\\workspace\\traintrain\\android\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",

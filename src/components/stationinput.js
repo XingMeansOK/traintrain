@@ -41,6 +41,7 @@ import  {
  import {inject, observer,autorun} from 'mobx-react';
  import Icon from 'react-native-vector-icons/Ionicons';
  import Collapsible from 'react-native-collapsible';
+ import Loading from 'react-native-loading-w';
 
 
 @inject("store") @observer
@@ -62,10 +63,11 @@ export default class StationInput extends Component{
 
   inputcheck = () => {
     if(this.props.store.start==''){
+
       Alert.alert('提示','请输入起点!')
     }
     else if (this.props.store.allstations.indexOf(this.props.store.start)==-1) {
-      Alert.alert('提示','请车站不存在！')
+      Alert.alert('提示','车站不存在！')
     }
     else if(this.props.store.destination==''){
       Alert.alert('提示','请输入终点！')
@@ -74,11 +76,13 @@ export default class StationInput extends Component{
       Alert.alert('提示','车站不存在！')
     }
     else if(this.props.store.start===this.props.store.destination){
-      Alert.alert('提示','起点与终点不同为统一车站！')
+      Alert.alert('提示','起点与终点不能为同一车站！')
     }
 
     else{
+      this.props.store.loadingRef.show(true);
       this.sendRequest();
+
     }
   }
 
@@ -94,6 +98,7 @@ export default class StationInput extends Component{
     });
     try {
       let response = await fetch(request);
+      this.props.store.loadingRef.dismiss();
       if(response.ok){
           let responseJson = await response.json();
           this.props.store.planInfo = responseJson;
@@ -108,9 +113,11 @@ export default class StationInput extends Component{
 
   }
 
+
   render(){
     return(
       <View style={styles.allcontainer}>
+
 
         <View style={styles.buttoncontainer}>
           <Icon
@@ -177,6 +184,7 @@ export default class StationInput extends Component{
               <Text style={styles.settimetxt}>设置换乘预估时间</Text>
             </TouchableHighlight>
           </View>
+
           <Collapsible collapsed={this.state.collapsed}>
             <View style={styles.timecontainer}>
               <View style={styles.timetipslicont}>
@@ -194,14 +202,12 @@ export default class StationInput extends Component{
                   maximumTrackTintColor={RIGHTTRACCOLOR}
                   thumbImage={require('../img/thumb.png')}
                   thumbStyle={styles.thumb}
-
                   thumbTintColor={THUMBCOLOR}
                   step={1}
                   minimumValue={0}
                   maximumValue={240}
                   value={120}
                   onValueChange={(value)=>{this.props.store.timeincity=value}}
-
                 />
               </View>
               <View style={styles.timetipslicont}>
@@ -226,10 +232,11 @@ export default class StationInput extends Component{
                     value={60}
                     onValueChange={(value)=>{this.props.store.timeinstation=value}}
                 />
-            </View>
-          </View>
-        </Collapsible>
+              </View>
+           </View>
+          </Collapsible>
       </View>
+
     </View>
     );
   }

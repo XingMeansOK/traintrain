@@ -16,6 +16,7 @@ class AppStore {
   @observable destination = ''; // 用于存放用户输入的终点站
   @observable selectedPlans = []; // 要在第一页展示的方案
   @observable currentRenderIndex = 0; // 当前渲染的方案
+  @observable loadingRef = null;
   /*
    planInfo， 推荐的乘车方案对象，
    多个成员，代表推荐的类型（时间最短，换乘最少这种），每个成员都是一个数组，数组元素是具体的一种乘车方案

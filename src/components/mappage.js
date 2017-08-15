@@ -13,7 +13,7 @@ import {
   CoordinatorLayout,
   FloatingActionButton,
 } from 'react-native-bottom-sheet-behavior';
-import SMap from './map';
+// import SMap from './map';
 import BottomSheetBehaviorWrapper from './bottomsheetbehavior';
 import MergedAppBarLayoutWrapper from './mergedappbarlayout';
 import {inject, observer} from 'mobx-react';
@@ -51,7 +51,8 @@ export default class Mappage extends Component {
             onIconClicked={() => this.props.store.navigate(INPUTPAGE)}
             />
         </ScrollingAppBarLayout>
-        <SMap/>
+
+
         <BottomSheetBehaviorWrapper/>
         <MergedAppBarLayoutWrapper/>
       </CoordinatorLayout>
