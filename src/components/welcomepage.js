@@ -8,7 +8,7 @@ import  {
   Image,
   StatusBar
  } from 'react-native';
-import { MAPPAGE,getHeightPercent } from './constant';
+import { MAPPAGE,getHeightPercent,getWidthPercent } from './constant';
 import {inject, observer} from 'mobx-react';
 
 
@@ -24,24 +24,26 @@ export default class Welcomepage extends Component {
     tabBarVisible: false
   };
 
+  componentDidMount(){
+    setTimeout(()=>this.props.store.navigate(MAPPAGE),3000)
+  }
+
   render(){
     return(
       <View style={styles.allcontainer}>
-          <StatusBar backgroundColor='#fff'/>
         <View style={styles.wordscont}>
-          <TouchableOpacity
-            onPress={()=>this.props.store.navigate(MAPPAGE)}
-          >
-          <Text>skip</Text>
-          </TouchableOpacity>
+          <Text style={styles.words}>让出更方便</Text>
         </View>
         <View style={styles.picturecont}>
           <Image
             source={require('../img/cover.png')}
-            style
+            resizeMode='cover'
+            resizeMethod='resize'
+            style={{width:350,height:205}}
           />
         </View>
         <View style={styles.appnamecont}>
+          <Text style={styles.appname}>Train</Text>
         </View>
       </View>
 
@@ -56,13 +58,28 @@ const styles=StyleSheet.create({
   },
   wordscont:{
     height:getHeightPercent(20),
-    backgroundColor:'#ccc',
+    backgroundColor:'#fff',
+    justifyContent:'center',
+    alignItems:'center',
   },
   picturecont:{
+    justifyContent:'center',
+    flexDirection:'row',
+    alignItems:'center',
     height:getHeightPercent(60),
+    flex:1,
+    backgroundColor:'#fff'
   },
   appnamecont:{
     height:getHeightPercent(20),
-    backgroundColor:'#ccc',
+    backgroundColor:'#fff',
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  appname:{
+    fontSize:50,
+  },
+  words:{
+    fontSize:30,
   }
 });
