@@ -155,6 +155,7 @@ export default class StationList extends Component{
       return(
         <View style={styles.listcontainer}>
             <SectionList
+              keyExtractor={(item,index)=>item.index=index}
               keyboardShouldPersistTaps="always"
               ref={sectionList => this.sectionListRef=sectionList}
               sections={this.getStationsData()}
