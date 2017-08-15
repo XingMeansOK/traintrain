@@ -43,7 +43,7 @@ export default class Welcomepage extends Component {
           />
         </View>
         <View style={styles.appnamecont}>
-          <Text style={styles.appname}>Train</Text>
+          <Text style={styles.appname}>Traintrain</Text>
         </View>
       </View>
 
